@@ -1,7 +1,3 @@
-import Body from '@/components/layouts/layoutCompoents/Body/Body'
-import Footer from '@/components/layouts/layoutCompoents/Footer/Footer'
-import Header from '@/components/layouts/layoutCompoents/Header/Header'
-import Wrapper from '@/components/layouts/layoutCompoents/Wrapper/Wrapper'
 import { type FunctionComponent, type ReactNode } from 'react'
 import {
   StyledBody,
