@@ -10,8 +10,10 @@ export const StyledBodyLayout = styled.div`
 export const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
-
+  align-items: stretch;
   background: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `
 
 export const StyledMainContent = styled(Content).attrs({

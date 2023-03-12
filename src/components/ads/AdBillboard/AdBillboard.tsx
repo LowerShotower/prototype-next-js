@@ -1,12 +1,22 @@
+import Region from '@/components/layouts/layoutCompoents/Region/Region'
+import Section from '@/components/layouts/layoutCompoents/Section/Section'
 import { type FunctionComponent, type ReactNode } from 'react'
-import { StyledAdBillboard } from './AdBillboard.styles'
+import { StyledAdBillboard, StyledPlacehodler } from './AdBillboard.styles'
 
 interface AdBillboardProps {
   children?: ReactNode
 }
 
-const AdBillboard: FunctionComponent<AdBillboardProps> = ({ children }) => {
-  return <StyledAdBillboard>{children}</StyledAdBillboard>
+const AdBillboard: FunctionComponent<AdBillboardProps> = () => {
+  return (
+    <StyledAdBillboard>
+      <Section>
+        <Region>
+          <StyledPlacehodler />
+        </Region>
+      </Section>
+    </StyledAdBillboard>
+  )
 }
 
 export default AdBillboard

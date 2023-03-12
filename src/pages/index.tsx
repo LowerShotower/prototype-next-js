@@ -3,6 +3,10 @@ import Layout from '@/components/layouts/Layout/Layout'
 import { ReactElement } from 'react'
 import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
 import Teaser from '@/components/teasers/Teaser/Teaser'
+import Row from '@/components/layouts/layoutCompoents/Row/Row'
+import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
+import Html from '@/components/Html/Html'
+import Section from '@/components/layouts/layoutCompoents/Section/Section'
 
 const Index = () => {
   return (
@@ -13,9 +17,53 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Teaser />
-      </div>
+      <>
+        <Section>
+          <Breadcramps />
+        </Section>
+        <Section>
+          <Html />
+        </Section>
+        <Section>
+          <Row spacing={10}>
+            <Row.Item columns={{ lg: 3 / 2, sm: 1 }}>
+              <Teaser
+                paidContent={false}
+                enm="top"
+                text="The largest community of photo enthusiasts"
+                title="Teaser,  enum: top, imageCount > 1"
+              />
+            </Row.Item>
+            <Row.Item columns={{ lg: 3 / 1, sm: 1 }}>
+              <Teaser
+                paidContent={false}
+                enm="standard"
+                text="Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
+                title="Teaser,  enum: standard"
+              />
+            </Row.Item>
+          </Row>
+        </Section>
+        <Section>
+          <Html />
+        </Section>
+        <Section>
+          <Row spacing={10} columns={{ lg: 3, sm: 2 }}>
+            {[0, 1, 2, 3, 4, 5, 6].map((value) => {
+              return (
+                <Row.Item key={value}>
+                  <Teaser
+                    paidContent={false}
+                    enm="standard"
+                    text="text"
+                    title="tetle"
+                  />
+                </Row.Item>
+              )
+            })}
+          </Row>
+        </Section>
+      </>
     </>
   )
 }
