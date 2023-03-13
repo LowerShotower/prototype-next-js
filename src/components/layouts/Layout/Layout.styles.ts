@@ -1,7 +1,7 @@
-import Body from '@/components/layouts/layoutCompoents/Body/Body'
-import Footer from '@/components/layouts/layoutCompoents/Footer/Footer'
-import Header from '@/components/layouts/layoutCompoents/Header/Header'
-import Wrapper from '@/components/layouts/layoutCompoents/Wrapper/Wrapper'
+import Body from '@/components/layouts/layoutComponents/Body/Body'
+import Footer from '@/components/layouts/layoutComponents/Footer/Footer'
+import Header from '@/components/layouts/layoutComponents/Header/Header'
+import Wrapper from '@/components/layouts/layoutComponents/Wrapper/Wrapper'
 import styled from 'styled-components'
 
 export const StyledLayout = styled.div`

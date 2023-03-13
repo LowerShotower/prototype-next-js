@@ -3,13 +3,13 @@ import Layout from '@/components/layouts/Layout/Layout'
 import { ReactElement } from 'react'
 import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
 import Teaser from '@/components/teasers/Teaser/Teaser'
-import Row from '@/components/layouts/layoutCompoents/Row/Row'
-import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
+import Row from '@/components/layouts/layoutComponents/Row/Row'
 import Html from '@/components/Html/Html'
-import Section from '@/components/layouts/layoutCompoents/Section/Section'
+import Section from '@/components/layouts/layoutComponents/Section/Section'
 import Ad from '@/components/ads/Ad/Ad'
-import Subsection from '@/components/layouts/layoutCompoents/Subsection/Subsection'
-import Divider from '@/components/layouts/layoutCompoents/Divider/Divider'
+import Subsection from '@/components/layouts/layoutComponents/Subsection/Subsection'
+import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
+import TagNav from '@/components/sections/TagNav/TagNav'
 
 const Index = () => {
   return (
@@ -22,7 +22,7 @@ const Index = () => {
       </Head>
       <>
         <Section>
-          <Breadcramps />
+          <TagNav />
         </Section>
         <Section>
           <Html />

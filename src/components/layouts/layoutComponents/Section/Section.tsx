@@ -1,6 +1,6 @@
 import { type FunctionComponent, type ReactNode } from 'react'
 import { StyledSection, StyledSectionTitle } from './Section.styles'
-import Region from '@/components/layouts/layoutCompoents/Region/Region'
+import Region from '@/components/layouts/layoutComponents/Region/Region'
 interface SectionProps {
   children?: ReactNode
   className?: string

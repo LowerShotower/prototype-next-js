@@ -13,3 +13,19 @@
     ]
   ]
 }
+
+// "babel": {
+//   "presets": [
+//     "react-app"
+//   ],
+//   "plugins": [
+//     [
+//       "babel-plugin-styled-components",
+//       {
+//         "namespace": "my-styled-components-project",
+//         "displayName": true,
+//         "fileName": false
+//       }
+//     ]
+//   ]
+// }

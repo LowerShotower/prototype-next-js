@@ -3,12 +3,16 @@ import Layout from '@/components/layouts/Layout/Layout'
 import { ReactElement } from 'react'
 import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
 import Teaser from '@/components/teasers/Teaser/Teaser'
-import Row from '@/components/layouts/layoutCompoents/Row/Row'
-import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
-import Section from '@/components/layouts/layoutCompoents/Section/Section'
+import Row from '@/components/layouts/layoutComponents/Row/Row'
+
+import Section from '@/components/layouts/layoutComponents/Section/Section'
 import Ad from '@/components/ads/Ad/Ad'
-import Divider from '@/components/layouts/layoutCompoents/Divider/Divider'
+import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
 import MehrButton from '@/components/MehrButton/MehrButton'
+import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
+import Link from 'next/link'
+import Image from 'next/image'
+import home from '@/public/assets/icons/home.svg'
 
 const Index = () => {
   return (
@@ -21,7 +25,13 @@ const Index = () => {
       </Head>
       <>
         <Section>
-          <Breadcramps />
+          <Breadcramps>
+            <Link href="/">
+              <Image width={20} height={20} src={home} alt="home" />
+            </Link>
+            <Link href="/article">BW von oben</Link>
+            <Link href="/ressort">Blaulicht</Link>
+          </Breadcramps>
         </Section>
         <Section>
           <Divider />

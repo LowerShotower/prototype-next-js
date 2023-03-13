@@ -2,20 +2,17 @@ import Head from 'next/head'
 import Layout from '@/components/layouts/Layout/Layout'
 import { ReactElement } from 'react'
 import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
-import Row from '@/components/layouts/layoutCompoents/Row/Row'
-import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
-import Section from '@/components/layouts/layoutCompoents/Section/Section'
+import Row from '@/components/layouts/layoutComponents/Row/Row'
+import Section from '@/components/layouts/layoutComponents/Section/Section'
 import Ad from '@/components/ads/Ad/Ad'
 import Placeholder from '@/components/Placeholder/Placeholder'
-import Divider from '@/components/layouts/layoutCompoents/Divider/Divider'
+import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
 import Teaser from '@/components/teasers/Teaser/Teaser'
-
+import SocialBar from '@/components/sections/SocialBar/SocialBar'
+import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
+import Link from 'next/link'
 import Image from 'next/image'
-import copy from '@/public/assets/icons/copy.svg'
-import arrow from '@/public/assets/icons/arrow.svg'
-import mail from '@/public/assets/icons/mail.svg'
-import print from '@/public/assets/icons/print.svg'
-import IconButton from '@/components/IconButton/IconButton'
+import home from '@/public/assets/icons/home.svg'
 
 const Index = () => {
   return (
@@ -28,7 +25,14 @@ const Index = () => {
       </Head>
       <>
         <Section>
-          <Breadcramps />
+          <Breadcramps>
+            <Link href="/">
+              <Image width={20} height={20} src={home} alt="home" />
+            </Link>
+            <Link href="/article">BW von oben</Link>
+            <Link href="/ressort">Blaulicht</Link>
+            <Link href="">Newsletter</Link>
+          </Breadcramps>
         </Section>
         <Section>
           <p style={{ marginTop: 10, marginBottom: 10 }}>
@@ -47,24 +51,12 @@ const Index = () => {
                 <p style={{ marginTop: 10, marginBottom: 30 }}>
                   Die Musiker sind stolz ihre erste eigene CD. Foto: Lauble
                 </p>
-                <div style={{ display: 'flex' }}>
-                  <IconButton>
-                    <Image src={print} alt="search" />
-                  </IconButton>
-                  <IconButton>
-                    <Image src={arrow} alt="search" />
-                  </IconButton>
-                  <IconButton>
-                    <Image src={copy} alt="search" />
-                  </IconButton>
-                  <IconButton>
-                    <Image src={mail} alt="search" />
-                  </IconButton>
-                </div>
+                <div style={{ display: 'flex' }}></div>
                 <h4 style={{ marginTop: 10, marginBottom: 30 }}>
                   Lange musste man warten, doch jetzt endlich ist sie da. Das
                   Akkordeonorchester Beffendorf präsentiert seine neue CD.
                 </h4>
+                <SocialBar />
                 <p style={{ marginTop: 10, marginBottom: 30 }}>
                   Mit dem Stück „Games of Throne“, eröffnete das
                   Akkordeonorchester Beffendorf musikalisch den Abend im
@@ -80,7 +72,7 @@ const Index = () => {
 
                 <Divider style={{ marginBottom: 20 }} />
                 <Section title="Lesen Sie auch" fullWidth>
-                  <Row spacing={10} columns={{ lg: 3, sm: 1, xs: 1 }}>
+                  <Row spacing={10} columns={{ lg: 3, xs: 1 }}>
                     {[0, 1, 2].map((value) => {
                       return (
                         <Row.Item key={value}>

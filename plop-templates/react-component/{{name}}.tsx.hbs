@@ -4,10 +4,11 @@ import { Styled{{name}} } from './{{name}}.styles'
 interface {{name}}Props {
   children?: ReactNode
   className?: string
+  style?: object
 }
 
-const {{name}}: FunctionComponent<{{name}}Props> = ({ className, children }) => {
-  return <Styled{{name}} className={className}>{children}</Styled{{name}}>
+const {{name}}: FunctionComponent<{{name}}Props> = ({ className, children, style }) => {
+  return <Styled{{name}} className={className} style={style}>{children}</Styled{{name}}>
 }
 
 export default {{name}}

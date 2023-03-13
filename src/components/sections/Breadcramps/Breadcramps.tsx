@@ -1,4 +1,4 @@
-import TagNav from '@/components/TagNav/TagNav'
+import { Breadcrumbs } from '@mui/material'
 import { type FunctionComponent, type ReactNode } from 'react'
 import { StyledBreadcramps } from './Breadcramps.styles'
 
@@ -7,10 +7,15 @@ interface BreadcrampsProps {
   className?: string
 }
 
-const Breadcramps: FunctionComponent<BreadcrampsProps> = ({ className }) => {
+const Breadcramps: FunctionComponent<BreadcrampsProps> = ({
+  className,
+  children,
+}) => {
   return (
     <StyledBreadcramps className={className}>
-      <TagNav />
+      <Breadcrumbs separator="›" aria-label="breadcrumb">
+        {children}
+      </Breadcrumbs>
     </StyledBreadcramps>
   )
 }

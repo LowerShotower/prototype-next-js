@@ -1,5 +1,5 @@
 import AdSkyscraper from '@/components/ads/AdSkyscraper/AdSkyscraper'
-import Content from '@/components/layouts/layoutCompoents/Content/Content'
+import Content from '@/components/layouts/layoutComponents/Content/Content'
 import styled from 'styled-components'
 
 export const StyledBodyLayout = styled.div`

@@ -1,6 +1,7 @@
 import { type FunctionComponent, type ReactNode } from 'react'
 import { StyledFlag } from './Flag.styles'
-import FlagIcon from '@/public/assets/icons/flag.svg'
+import flagIcon from '../../../src/public/assets/icons/flag.svg'
+import Image from 'next/image'
 
 interface FlagProps {
   children?: ReactNode
@@ -10,7 +11,7 @@ interface FlagProps {
 const Flag: FunctionComponent<FlagProps> = ({ className }) => {
   return (
     <StyledFlag className={className}>
-      <FlagIcon />
+      <Image src={flagIcon} alt={flagIcon} />
     </StyledFlag>
   )
 }

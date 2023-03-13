@@ -1,4 +1,4 @@
-import Section from '@/components/layouts/layoutCompoents/Section/Section'
+import Section from '@/components/layouts/layoutComponents/Section/Section'
 import { type FunctionComponent, type ReactNode } from 'react'
 import { StyledAdBillboard, StyledPlacehodler } from './AdBillboard.styles'
 
