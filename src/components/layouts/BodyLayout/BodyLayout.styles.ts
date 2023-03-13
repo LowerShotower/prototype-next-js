@@ -25,4 +25,7 @@ export const StyledMainContent = styled(Content).attrs({
 export const StyledAdSkyscraper = styled(AdSkyscraper)`
   display: flex;
   flex: 1 0 294px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `

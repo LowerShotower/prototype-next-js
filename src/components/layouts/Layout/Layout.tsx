@@ -1,7 +1,6 @@
 import { type FunctionComponent, type ReactNode } from 'react'
 import {
   StyledBody,
-  StyledFooter,
   StyledHeader,
   StyledLayout,
   StyledWrapper,
@@ -17,7 +16,6 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
       <StyledWrapper>
         <StyledHeader />
         <StyledBody>{children}</StyledBody>
-        <StyledFooter />
       </StyledWrapper>
     </StyledLayout>
   )

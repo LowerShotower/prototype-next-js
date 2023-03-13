@@ -22,6 +22,7 @@ export const StyledSubsection = styled.div<StyledSubsectionProps>`
 
 export const StyledHeaderTitle = styled.h4`
   text-align: center;
+  margin-bottom: 10px;
 `
 
 export const StyledFooterTitle = styled.h4`

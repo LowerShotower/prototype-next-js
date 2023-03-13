@@ -12,7 +12,7 @@ const Diagonal: FunctionComponent<DiagonalProps> = ({ reversed }) => {
         x2="100%"
         y1={reversed ? '100%' : '0'}
         y2={!reversed ? '100%' : '0'}
-        style={{ stroke: 'rgb(0,0,0)', strokeWidth: 1 }}
+        style={{ stroke: 'rgb(177, 177, 177)', strokeWidth: 1 }}
       />
     </svg>
   )

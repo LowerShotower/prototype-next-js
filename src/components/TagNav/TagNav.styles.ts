@@ -7,5 +7,12 @@ export const StyledTagNav = styled.nav`
     &:last-child {
       margin-right: 0px;
     }
+    @media (max-width: 800px) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
   }
 `

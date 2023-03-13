@@ -15,6 +15,7 @@ enum TeaserEnum {
 enum Enum {
   standard = 'standard',
   top = 'top',
+  compact = 'compact',
 }
 
 export type TeaserTypes = `${(typeof TeaserEnum)[keyof typeof TeaserEnum]}`

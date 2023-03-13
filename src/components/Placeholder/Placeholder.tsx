@@ -5,13 +5,18 @@ import {
   StyledText,
 } from './Placeholder.styles'
 import Diagonal from './icons/Diagonal'
-interface Props {
+export interface PlaceholderProps {
   text?: ReactNode
   className?: string
+  style?: object
 }
-const Placeholder: FunctionComponent<Props> = ({ text, className }) => {
+const Placeholder: FunctionComponent<PlaceholderProps> = ({
+  text,
+  className,
+  ...otherProps
+}) => {
   return (
-    <StyledPlaceholder className={className}>
+    <StyledPlaceholder className={className} {...otherProps}>
       <StyledSvgWrapper>
         <Diagonal reversed={false} />
       </StyledSvgWrapper>

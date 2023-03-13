@@ -1,5 +1,6 @@
 import AdBillboard from '@/components/ads/AdBillboard/AdBillboard'
 import { type FunctionComponent, type ReactNode } from 'react'
+import { StyledFooter } from '../Layout/Layout.styles'
 import {
   StyledAdSkyscraper,
   StyledBodyLayout,
@@ -17,6 +18,7 @@ const BodyLayout: FunctionComponent<BodyLayoutProps> = ({ children }) => {
       <StyledMainContent>
         <AdBillboard />
         <StyledContent>{children}</StyledContent>
+        <StyledFooter />
       </StyledMainContent>
       <StyledAdSkyscraper />
     </StyledBodyLayout>

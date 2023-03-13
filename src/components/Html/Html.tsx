@@ -8,7 +8,7 @@ interface HtmlProps {
 const Html: FunctionComponent<HtmlProps> = () => {
   return (
     <StyledHtml>
-      <StyledPlacehodler />
+      <StyledPlacehodler text="Html" />
     </StyledHtml>
   )
 }

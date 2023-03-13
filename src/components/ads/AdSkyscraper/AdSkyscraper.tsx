@@ -9,7 +9,7 @@ interface AdSkyscraperProps {
 const AdSkyscraper: FunctionComponent<AdSkyscraperProps> = ({ className }) => {
   return (
     <StyledAdSkyscraper className={className}>
-      <StyledPlaceholder />
+      <StyledPlaceholder text="Ad" />
     </StyledAdSkyscraper>
   )
 }

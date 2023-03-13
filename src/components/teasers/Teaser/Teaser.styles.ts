@@ -8,8 +8,17 @@ export const StyledTeaser = styled.div`
   flex-direction: column;
   align-items: stretch;
   position: relative;
-  height: ${({ enm }: { enm?: EnumTypes }) =>
-    enm === 'top' ? '389px' : 'auto'};
+  height: ${({ enm }: { enm?: EnumTypes }) => {
+    switch (enm) {
+      case 'top':
+        return '389px'
+      case 'compact':
+        return '219px'
+      case 'standard':
+      default:
+        return 'auto'
+    }
+  }};
 `
 // export const StyledTeaserBody = styled.div``
 export const StyledTeaserImage = styled(Placeholder)`
@@ -22,6 +31,7 @@ export const StyledTeaserImage = styled(Placeholder)`
           position: relative;
         `
       case 'top':
+      case 'compact':
         return css`
           position: absolute;
           inset: 0 0;
@@ -40,6 +50,7 @@ export const StyledTeaserImage = styled(Placeholder)`
       default:
         return paidContent ? '240px' : '154px'
       case 'top':
+      case 'compact':
         return 'auto'
     }
   }};
@@ -48,13 +59,28 @@ export const StyledTeaserDescription = styled.div`
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: ${({ enm }: { enm?: EnumTypes }) =>
-    enm === 'top' ? 'flex-end' : 'flex-start'};
-  padding: 15px 10px 20px;
+  justify-content: ${({ enm }: { enm?: EnumTypes }) => {
+    switch (enm) {
+      case 'top':
+      case 'compact':
+        return 'flex-end'
+      case 'standard':
+      default:
+        return 'flex-start'
+    }
+  }};
+  padding: 15px 0 20px;
   z-index: 0;
 `
-export const StyledTeaserTitle = styled.h4``
-export const StyledTeaserText = styled.p``
+export const StyledTeaserTitle = styled.p`
+  font-family: 'Open Sans';
+  font-size: 14px;
+`
+export const StyledTeaserText = styled.p`
+  font-family: 'Open Sans';
+  line-height: 1.6;
+  font-size: 18px;
+`
 export const StyledTeaserFlag = styled(Flag)`
   position: absolute;
   ${({ type }: { type: TeaserTypes }) => {
