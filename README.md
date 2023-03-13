@@ -20,6 +20,11 @@ yarn plop
 yarn build
 ```
 
+
+```bash
+# put stories in _stories folder
+```
+
 ```bash
 #build  storybook for development 
 yarn storybook

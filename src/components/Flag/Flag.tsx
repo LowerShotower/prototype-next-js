@@ -1,6 +1,6 @@
 import { type FunctionComponent, type ReactNode } from 'react'
 import { StyledFlag } from './Flag.styles'
-import flagIcon from '../../../src/public/assets/icons/flag.svg'
+import flagIcon from '@/public/assets/icons/flag.svg'
 import Image from 'next/image'
 
 interface FlagProps {
