@@ -5,6 +5,7 @@ import {
   StyledTeaserImage,
   StyledTeaserText,
   StyledTeaserTitle,
+  // StyledTeaserFlag,
 } from './Teaser.styles'
 
 enum TeaserEnum {
@@ -45,6 +46,7 @@ const Teaser: FunctionComponent<TeaserProps> = ({
         <StyledTeaserTitle>{title}</StyledTeaserTitle>
         <StyledTeaserText>{text}</StyledTeaserText>
       </StyledTeaserDescription>
+      {/* <StyledTeaserFlag enm={enm} /> */}
     </StyledTeaser>
   )
 }

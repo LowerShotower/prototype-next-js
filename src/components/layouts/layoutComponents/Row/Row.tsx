@@ -32,7 +32,7 @@ const Row: FunctionComponent<RowProps> & {
 } = ({ className, children, columns, spacing }) => {
   return (
     <StyledRow spacing={spacing} className={className}>
-      {Children.map(children, (child: ReactElement) => {
+      {Children.map(children || [], (child: ReactElement) => {
         return cloneElement(child, {
           spacing,
           columns: child?.props?.columns || columns,

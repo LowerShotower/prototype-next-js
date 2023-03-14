@@ -11,7 +11,7 @@ interface FlagProps {
 const Flag: FunctionComponent<FlagProps> = ({ className }) => {
   return (
     <StyledFlag className={className}>
-      <Image src={flagIcon} alt={flagIcon} />
+      <Image src={flagIcon} alt="flagIcon" />
     </StyledFlag>
   )
 }

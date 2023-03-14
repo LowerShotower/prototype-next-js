@@ -10,6 +10,8 @@ import Ad from '@/components/ads/Ad/Ad'
 import Subsection from '@/components/layouts/layoutComponents/Subsection/Subsection'
 import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
 import TagNav from '@/components/sections/TagNav/TagNav'
+import NewsTicker from '@/components/NewsTicker/NewsTicker'
+import Region from '@/components/layouts/layoutComponents/Region/Region'
 
 const Index = () => {
   return (
@@ -221,6 +223,19 @@ const Index = () => {
               )
             })}
           </Row>
+        </Section>
+        <Section>
+          <Divider />
+        </Section>
+        <Section>
+          <Region>
+            <Row spacing={0}>
+              <Row.Item columns={{ lg: 3 / 2 }}>
+                <NewsTicker />
+              </Row.Item>
+              <Row.Item columns={{ lg: 3 }}></Row.Item>
+            </Row>
+          </Region>
         </Section>
       </>
     </>

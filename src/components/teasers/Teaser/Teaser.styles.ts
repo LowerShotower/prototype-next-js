@@ -81,18 +81,23 @@ export const StyledTeaserText = styled.p`
   line-height: 1.6;
   font-size: 18px;
 `
+
 export const StyledTeaserFlag = styled(Flag)`
-  position: absolute;
-  ${({ type }: { type: TeaserTypes }) => {
-    switch (type) {
-      case 'common':
+  display: flex;
+  ${({ enm }: { type?: TeaserTypes; enm?: EnumTypes }) => {
+    switch (enm) {
+      case 'standard':
       default:
         return css`
+          justify-content: flex-end;
+          position: relative;
           bottom: 0;
-          right: 0;
+          left: 0;
         `
-      case 'paid':
+      case 'top':
         return css`
+          justify-content: flex-end;
+          position: relative;
           bottom: 0;
           left: 0;
         `
