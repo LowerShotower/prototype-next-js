@@ -1,25 +1,25 @@
 import Head from 'next/head'
 import Layout from '@/components/layouts/Layout/Layout'
-import { ReactElement } from 'react'
-import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
-import Row from '@/components/layouts/layoutComponents/Row/Row'
-import Section from '@/components/layouts/layoutComponents/Section/Section'
-import Ad from '@/components/bticks/ads/Ad/Ad'
-import Placeholder from '@/components/Placeholder/Placeholder'
-import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
-import Teaser from '@/components/bticks/Teaser/Teaser'
-import SocialBar from '@/components/sections/SocialBar/SocialBar'
+// import { ReactElement } from 'react'
+// import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
+// import Row from '@/components/layouts/layoutComponents/Row/Row'
+// import Section from '@/components/layouts/layoutComponents/Section/Section'
+// import Ad from '@/components/bticks/ads/Ad/Ad'
+// import Placeholder from '@/components/Placeholder/Placeholder'
+// import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
+// import Teaser from '@/components/bticks/Teaser/Teaser'
+// import SocialBar from '@/components/sections/SocialBar/SocialBar'
 import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
 import Link from 'next/link'
 import Image from 'next/image'
 import home from '@/public/assets/icons/home.svg'
 import { components } from 'schema'
 import { GetServerSideProps } from 'next/types'
-import Wall from '@/components/bticks/Wall/Wall'
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
+// import Wall from '@/components/bticks/Wall/Wall'
+import { groupBy } from 'lodash'
+export const getServerSideProps: GetServerSideProps = async () => {
   //@ts-ignore
-  const { articleId } = context.params
+  // const { articleId } = context.params
   const res = await fetch(
     `http://msh-news.intetics.com:8080/stz/article/a26d8a68-b297-11ed-afa1-0242ac120002`
   )
@@ -40,6 +40,14 @@ interface ArticlePageProps {
 }
 
 const ArticlePage = ({ data }: ArticlePageProps) => {
+  const { content } = data
+  const { header } = groupBy(content, ({ type }) => type)
+  const { bottomnavigation } = groupBy(header?.[0].content, ({ type }) => type)
+
+  //@ts-ignore
+  const bn = bottomnavigation?.[0] as components['schemas']['BottomNavigation']
+  const breadcramps = bn?.content
+  console.log(bn?.content)
   return (
     <>
       <Head>
@@ -49,7 +57,20 @@ const ArticlePage = ({ data }: ArticlePageProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <Wall data={data} />
+        <Breadcramps>
+          <>
+            <Link href="/">
+              <Image width={20} height={20} src={home} alt="home" />
+            </Link>
+            {breadcramps?.content?.map(({ name, reference }, index: number) => {
+              return (
+                <Link key={index} href={reference || ''}>
+                  {name}
+                </Link>
+              )
+            })}
+          </>
+        </Breadcramps>
       </>
     </>
   )

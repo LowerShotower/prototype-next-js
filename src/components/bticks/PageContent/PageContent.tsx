@@ -18,8 +18,6 @@ const PageContent: FunctionComponent<PageContentProps> = ({ data }) => {
         if (item.type === 'brickgroup') {
           return <BrickGroup key={`${item?.id}${index}`} data={item} />
         }
-        if (item.type === '') {
-        }
       })}
     </>
   )

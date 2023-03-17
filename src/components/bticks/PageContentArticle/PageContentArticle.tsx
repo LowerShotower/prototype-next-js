@@ -11,16 +11,7 @@ interface PageContentProps {
 
 const PageContent: FunctionComponent<PageContentProps> = ({ data }) => {
   const { content } = data
-
-  return (
-    <>
-      {content?.map((item, index) => {
-        if (item.type === 'brickgroup') {
-          return <BrickGroup key={`${item?.id}${index}`} data={item} />
-        }
-      })}
-    </>
-  )
+  return <>{content}</>
 }
 
 export default PageContent

@@ -1,10 +1,8 @@
-import { groupBy } from 'lodash'
 import { type FunctionComponent, type ReactNode } from 'react'
 import { components } from 'schema'
 import Ad from '../ads/Ad/Ad'
-import ArticleHeader from '../ArticleHeader/ArticleHeader'
+// import ArticleHeader from '../ArticleHeader/ArticleHeader'
 import Teaser from '../Teaser/Teaser'
-import { StyledBrick } from './Brick.styles'
 
 interface BrickProps {
   children?: ReactNode
@@ -12,23 +10,6 @@ interface BrickProps {
   style?: object
   data: components['schemas']['Brick']
 }
-type Types =
-  | 'standardteaser'
-  | 'topteaser'
-  | 'tickerteaser'
-  | 'readmoreteaser'
-  | 'recoteaser'
-  | 'compactteaser'
-  | 'customad'
-  | 'rpdad'
-  | 'nativead'
-  | 'taboolaad'
-  | 'html'
-  | 'loadmore'
-  | 'author'
-  | 'articleheader'
-  | 'image'
-  | undefined
 
 const Brick: FunctionComponent<BrickProps> = ({ data }) => {
   const { content } = data
@@ -74,9 +55,9 @@ const Brick: FunctionComponent<BrickProps> = ({ data }) => {
         ) {
           return <Ad key={`${item.type}${index}`} />
         }
-        if (_type === 'articleheader') {
-          return <ArticleHeader text={item.headline} />
-        }
+        // if (_type === 'articleheader') {
+        //   return <ArticleHeader text={item.headline} />
+        // }
       })}
     </>
   )

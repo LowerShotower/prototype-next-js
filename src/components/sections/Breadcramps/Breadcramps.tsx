@@ -1,9 +1,9 @@
 import { Breadcrumbs } from '@mui/material'
-import { type FunctionComponent, type ReactNode } from 'react'
+import { type FunctionComponent } from 'react'
 import { StyledBreadcramps } from './Breadcramps.styles'
 
 interface BreadcrampsProps {
-  children?: ReactNode
+  children?: JSX.Element | JSX.Element[]
   className?: string
 }
 
