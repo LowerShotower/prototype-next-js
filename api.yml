@@ -1,0 +1,3331 @@
+openapi: 3.0.3
+info:
+  title: CMS Frontend
+  version: '0.1.0'
+  description: API for News CMS pages & fragments
+  
+servers:
+  - url: http://localhost:9095/frontendapi
+  - url: http://localhost:8080/
+  - url: http://msh-news.intetics.com:8080/ 
+  
+paths:
+  /{portal}/homepage:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+    get:
+      summary: get homepage
+      description: gets the homepage
+      operationId: getHomepage
+      tags: 
+        - Pages
+      responses:
+        '200':
+          $ref: '#/components/responses/homePage'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/ressort/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get a ressort page for the given id
+      description: gets a ressort page
+      operationId: getRessort
+      tags: 
+        - Pages
+      responses:
+        '200':
+          $ref: '#/components/responses/ressortPage'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/article/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get an article page for the given id
+      description: gets an article page
+      operationId: getArticle
+      tags: 
+        - Pages
+      responses:
+        '200':
+          $ref: '#/components/responses/articlePage'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+        
+  /{portal}/reducedarticle/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get a reduced article page for the given id
+      description: gets a reduced article page
+      operationId: getReducedArticle
+      tags: 
+        - Pages
+      responses:
+        '200':
+          $ref: '#/components/responses/articlePage'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/topic/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get a topic page for the given id/title
+      description: gets a topic page
+      operationId: getTopic
+      tags: 
+        - Pages
+      responses:
+        '200':
+          $ref: '#/components/responses/topicPage'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/author/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get an author page for the given id
+      description: gets an author page
+      operationId: getAuthor
+      tags: 
+        - Pages
+      responses:
+        '200':
+          $ref: '#/components/responses/authorPage'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/brickgroup/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get a brick group fragment for the given id
+      description: gets a brick group fragment
+      operationId: getBrickGroup
+      tags: 
+        - Fragments
+      responses:
+        '200':
+          $ref: '#/components/responses/brickgroup'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/brick/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get a brick fragment for the given id
+      description: gets a brick fragment
+      operationId: getBrick
+      tags: 
+        - Fragments
+      responses:
+        '200':
+          $ref: '#/components/responses/brick'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/header/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get the header fragment for the given id
+      description: gets the header fragment
+      operationId: getHeader
+      tags: 
+        - Fragments
+      responses:
+        '200':
+          $ref: '#/components/responses/header'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+          
+  /{portal}/footer/{id}:
+    parameters:
+      - $ref: '#/components/parameters/portal'
+      - $ref: '#/components/parameters/id'
+    get:
+      summary: get the footer fragment for the given id
+      description: gets the footer fragment
+      operationId: getFooter
+      tags: 
+        - Fragments
+      responses:
+        '200':
+          $ref: '#/components/responses/footer'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/internalServerError'
+        '502':
+          $ref: '#/components/responses/badGateway'
+        '503':
+          $ref: '#/components/responses/serviceUnavailable'
+        default:
+          $ref: '#/components/responses/error'
+                
+tags:
+  - name: Pages
+    description: Everything related for an entire page
+  - name: Fragments
+    description: Everything related for page fragments
+    
+security:
+  - ApiKeyAuth: []
+
+components:
+  securitySchemes:
+    ApiKeyAuth:        # arbitrary name for the security scheme
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: X-API-KEY
+      
+  parameters:
+    portal:
+      name: portal
+      description: Unique identifier of the portal
+      in: path
+      required: true
+      schema:
+        $ref: '#/components/schemas/Portal'
+      example: stz
+        
+    id: 
+      name: id
+      description: Unique identifier
+      in: path
+      required: true
+      schema:
+        $ref: '#/components/schemas/Id'
+      example: a26d8a68-b297-11ed-afa1-0242ac120002
+  
+  responses:
+    homePage:
+      description: Response for a valid page
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Wall'
+          examples:
+            homepage:
+              $ref: '#/components/examples/homePage'
+
+    ressortPage:
+      description: Response for a valid page
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Wall'
+          examples:
+            ressort:
+              $ref: '#/components/examples/ressortPage'
+              
+    articlePage:
+      description: Response for a valid page
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Wall'
+          examples:
+            article:
+              $ref: '#/components/examples/articlePage'
+              
+    topicPage:
+      description: Response for a valid page
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Wall'
+            
+    authorPage:
+      description: Response for a valid page
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Wall'
+              
+    brickgroup:
+      description: Response for a brick group
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BrickGroup'
+            
+    brick:
+      description: Response for a brick
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Brick'
+            
+    header:
+      description: Response for the header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Header'
+            
+    footer:
+      description: Response for the footer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Footer'
+            
+    error:
+      description: Response for 4XX and 5XX errors. This also includes the 470 error which indicates that the app/ API version is no longer supported.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    badRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    notFound:
+      description: Entity was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    internalServerError:
+      description: An inter-service authentication error happened
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    badGateway:
+      description: An inter-service communication error happened, maybe different API versions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    serviceUnavailable:
+      description: An upstream server is not available
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+        
+  schemas:
+    Portal:
+      description: Portal identifier
+      type: string
+      example: stz
+    Id:
+      description: Unique identifier
+      type: string
+      example: a26d8a68-b297-11ed-afa1-0242ac120002
+      
+    ApiError:
+      description: The response body for 4XX and 5XX errors.
+      type: object
+      properties:
+        error:
+          description: Internal error message for logging and crash reports. This message should never be shown to the user.
+          type: string
+          example: internal error message
+        errorId:
+          description: Technical ID to distinguish error cases; list should be extended with domain specific errors
+          type: string
+          example: 503
+        message:
+          description: A user-visible error message
+          type: object
+          properties:
+            text:
+              description: Plain text error message for the user.
+              type: string
+              example: Some error happened
+            url:
+              description: URL of an error page. The page may contain additional information, links, etc. that help the user to understand and/or fix the issue.
+              type: string
+              example: https://example.com/errordetails
+          required:
+            - text
+      required:
+        - error
+        - message
+  
+    Wall:
+      description: A wall
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - articlepage
+            - homepage
+            - ressortpage
+            - topicpage
+            - authorpage
+          example: articlepage
+        id:
+          type: string
+          example: a26d8a68-b297-11ed-afa1-0242ac120002
+        title:
+          type: string
+          example: Page Title
+        kicker:
+          type: string
+          example: Page Kicker
+        content:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Ad'
+              - $ref: '#/components/schemas/HtmlHead'
+              - $ref: '#/components/schemas/Header'
+              - $ref: '#/components/schemas/PageContent'
+              - $ref: '#/components/schemas/Footer'
+      required:
+        - id
+        - title
+        - kicker
+        - content
+        
+    HtmlHead:
+      description: HTML <head> code
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum: 
+            - htmlhead
+          example: htmlhead
+        content:
+          $ref: '#/components/schemas/Html'
+      required:
+        - type
+        - content
+      example: 
+        type: htmlhead
+        content:
+          type: html
+          text: '<head>
+              <title>Lokal - Schwarzwälder Bote</title>
+              <link rel="canonical" href="https://www.schwarzwaelder-bote.de/">
+              <meta name="apple-mobile-web-app-capable" content="yes" />
+              <meta name="robots" content="index, follow, noarchive, noodp, noydir" />
+              <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+              <link rel="shortcut icon" href="https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/favicon.ico" type="image/ico">
+              <meta http-equiv="pragma" content="no-cache">
+              <meta http-equiv="cache-control" content="no-cache">
+              <meta http-equiv="Content-Language" content="de">
+              <meta http-equiv="last-modified" content="Thu Mar 02 07:44:50 CET 2023">  
+              <meta name="author" content="Schwarzwälder Bote, Oberndorf, Germany">
+              <meta name="copyright" content="Schwarzwälder Bote, Oberndorf, Germany">
+              <meta name="email" content="service@schwarzwaelder-bote.de">
+              <meta name="siteinfo" content="https://www.schwarzwaelder-bote.de/robots.txt">
+              <meta name="description" content="Aktuelle Nachrichten aus dem Schwarzwald und der Region, Schwarzwald-Baar Kreis, Kreis Freudenstadt, Kreis Calw, Zollernalb Kreis, Kreis Rottweil, Kreis Ortenau, Nordschwarzwald, Südschwarzwald, Baden-Württemberg, Politik, Wirtschaft, Finanzen, Beruf, Karriere, Auto, Wohnen und Bauen, Sport, VfB Stuttgart, Fußball, Tabellen, Ergebnisse, Kultur, Reise, Wetter, Südwesten, Veranstaltungen, Musik, Kino, Clubs, Gastro, Video, Fotostrecken, Stellenmarkt, Stellenangebote, Stellengesuche, Immobilien, Wohnung mieten kaufen, Verlag, Presse">
+              <meta name="keywords" content="Lokal, Startseite">
+              <meta name="news_keywords" content="Lokal, Startseite">
+              <meta name="date" content="Thu Mar 02 07:44:50 CET 2023">
+              <meta property="og:title" content="Lokal" />
+              <meta property="og:type" content="website" />
+              <meta property="og:image" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg">  
+              
+              <meta property="og:image:secure_url" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg"> 
+              <meta property="og:image:width" content="1200"> 
+              <meta property="og:image:height" content="675"> 
+              <meta property="og:image:type" content="image/jpeg">
+              <link id="mainCss" href="https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/css/main.min.css?v=20230213-1300" type="text/css" rel="stylesheet">
+              <link rel="shortcut icon" href="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/favicon.ico" type="image/ico">
+              
+              <script async id="ebx" src="//applets.ebxcdn.com/ebx.js" data-applet-id="iojxpcmb"></script>
+            </head>'
+      
+    Header:
+      description: The page header
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - header
+          example: header
+        content:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TopNavigation'
+              - $ref: '#/components/schemas/MainNavigation'
+              - $ref: '#/components/schemas/MetaNavigation'
+              - $ref: '#/components/schemas/UserNavigation'
+              - $ref: '#/components/schemas/BottomNavigation'
+              - $ref: '#/components/schemas/Ad'
+              - $ref: '#/components/schemas/Logo'
+      required:
+        - type
+        - content
+        
+    Logo:
+      description: Main Logo
+      type: object
+      additionalProperties: false
+      properties:
+        reference:
+          description: The url of the logo
+          type: string
+          example: https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/svg/schwarzwaelder-bote_logo.svg
+      required:
+        - reference
+        
+    TopNavigation:
+      description: Top navigation
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - topnavigation
+          example: topnavigation
+        content:
+          $ref: '#/components/schemas/Navigation'
+      required: 
+        - type
+        - content
+      example: 
+        type: topnavigation
+        content:
+          - type: toplevelentry
+            name: Top Navigation 1
+            label: First
+            reference: "/ressort/1"
+          - type: toplevelentry
+            name: Top Navigation 2
+            label: Second
+            reference: "/ressort/2"
+          - type: toplevelentry
+            name: Top Navigation 3
+            label: Third
+            reference: "/ressort/3"
+          
+    MainNavigation:
+      description: Main navigation
+      additionalProperties: false
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - mainnavigation
+          example: mainnavigation
+        content:
+          $ref: '#/components/schemas/Navigation'
+      required: 
+        - type
+        - content
+      example: 
+        type: mainnavigation
+        content:
+          - type: toplevelentry
+            name: Main Navigation 1
+            label: First
+            reference: "/ressort/1"
+          - type: toplevelentry
+            name: Main Navigation 2
+            label: Second
+            reference: "/ressort/2"
+          - type: section
+            name: Main Navigation 3
+            label: Third
+            reference: "/ressort/3"
+            elements:
+              - type: sectionentry
+                name: Main Sub Navigation 1
+                label: First Sub
+                reference: "/ressort/4"
+              - type: subsection
+                name: Main Sub Navigation 2
+                label: Second Sub
+                reference: "/ressort/5"
+                elements:
+                  - type: subsectionentry
+                    name: Main Sub Sub Navigation 1
+                    label: First Sub Sub
+                    reference: "/ressort/6"
+                  - type: subsectionentry
+                    name: Main Sub Sub Navigation 2
+                    label: Second Sub Sub
+                    reference: "/ressort/7"
+    UserNavigation:
+      description: User navigation
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - usernavigation
+          example: usernavigation
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Html'
+      required: 
+        - type
+        - content      
+    MetaNavigation:
+      description: Meta navigation
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - metanavigation
+          example: metanavigation
+        content:
+          $ref: '#/components/schemas/Navigation'
+      required: 
+        - type
+        - content
+      example: 
+        type: metanavigation
+        content:
+          - type: toplevelentry
+            name: Meta Navigation 1
+            label: First
+            reference: "/ressort/11"
+          - type: toplevelentry
+            name: Meta Navigation 2
+            label: Second
+            reference: "/ressort/22"
+          - type: toplevelentry
+            name: Meta Navigation 3
+            label: Third
+            reference: "/ressort/33"
+          
+    BottomNavigation:
+      description: Bottom navigation
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - bottomnavigation
+          example: bottomnavigation
+        content:
+          oneOf:
+            - $ref: '#/components/schemas/Breadcrumb'
+            - $ref: '#/components/schemas/TopicIndex'
+      required: 
+        - type
+        - content
+      example: 
+        type: bottomnavigation
+        content:
+          - type: breadcrumb
+            content:
+              - type: breadcrumbitem
+                name: First
+                reference: "/ressort/1"
+              - type: breadcrumbitem
+                name: Second
+                reference: "/ressort/2"
+              - type: breadcrumbitem
+                name: Third
+                referernce: "/ressort/3"
+    
+    Navigation:
+      description: A navigation
+      type: array
+      items:
+        oneOf:
+          - $ref: '#/components/schemas/TopLevelEntry'
+          - $ref: '#/components/schemas/Section'
+          
+    TopLevelEntry:
+      description: A top level entry without any sub-entries
+      type: object
+      additionalProperties: false
+      allOf:
+        - $ref: '#/components/schemas/NavigationEntryBase'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - toplevelentry
+              example: toplevelentry
+          required:
+            - type
+      
+    SectionEntry:
+      description: An entry in a section without any other child entries
+      type: object
+      additionalProperties: true
+      allOf:
+        - $ref: '#/components/schemas/NavigationEntryBase'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - sectionentry
+              example: sectionentry
+          required:
+            - type
+
+    SubSectionEntry:
+      description: Am entry in a sub-section without any other child entries
+      type: object
+      additionalProperties: true
+      allOf:
+        - $ref: '#/components/schemas/NavigationEntryBase'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - subsectionentry
+              example: subsectionentry
+          required:
+            - type
+
+    SubSection:
+      description: A second level section which can have child entries but no further sub-sections
+      type: object
+      additionalProperties: true
+      allOf:
+        - $ref: '#/components/schemas/NavigationEntryBase'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - subsection
+              example: subsection
+            elements:
+              type: array
+              items:
+                oneOf:
+                  - $ref: '#/components/schemas/SubSectionEntry'
+              minItems: 1
+          required:
+            - type
+            - elements
+
+    Section:
+      description: A top level section which can have child entries and sub-sections
+      type: object
+      additionalProperties: true
+      allOf:
+        - $ref: '#/components/schemas/NavigationEntryBase'
+        - type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - section
+              example: section
+            elements:
+              type: array
+              items:
+                oneOf:
+                  - $ref: '#/components/schemas/SectionEntry'
+                  - $ref: '#/components/schemas/SubSection'
+              minItems: 1
+          required:
+            - type
+            - elements
+
+    NavigationEntryBase:
+      description: A generic navigation entry
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          description: The name of the entry. This is displayed as-is in the app.
+          type: string
+          example: Entry Name
+        label:
+          description: An additional label for the entry. This is mainly used to designate entries as advertisment.
+          type: string
+          example: Entry Label
+        reference:
+          description: Info about what the entry is referencing
+          type: string
+          example: /ressort/4c23de64-b29c-11ed-afa1-0242ac120002
+      required:
+        - name
+
+    Breadcrumb:
+      description: The breadcrumb navigation path
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - breadcrumb
+          example: breadcrumb
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/BreadcrumbItem'
+      required:
+        - type
+        - content
+
+    BreadcrumbItem:
+      description: A item in the breadcrumb path
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - breadcrumbitem
+          example: breadcrumbitem
+        name:
+          type: string
+          example: Sub Page 1
+        reference:
+          type: string
+          example: /ressort/4c23de64-b29c-11ed-afa1-0242ac120002
+      required: 
+        - type
+        - name
+        - reference
+        
+    TopicIndex:
+      description: The topic index navigation path
+      type: object
+      additionalProperties: true
+      properties:
+        type:
+          type: string
+          enum:
+            - topicindex
+          example: topicindex
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicIndexItem'
+      required:
+        - type
+        - content
+        
+    TopicIndexItem:
+      description: A item in the topic index path
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - topicindexitem
+          example: topicindexitem
+        name:
+          type: string
+          example: Topic Index A
+        reference:
+          type: string
+          example: /topic/A
+      required: 
+        - type
+        - name
+        - reference
+          
+    Dimension:
+      description: Width/height object
+      type: object
+      additionalProperties: false
+      properties:
+        width:
+          type: integer
+          example: 1200
+        height:
+          type: integer
+          example: 900
+      required: 
+        - width
+        - height
+        
+    Footer:
+      description: The page footer
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - footer
+          example: footer
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Html'
+      required:
+        - type
+        - content
+      example:
+        type: footer
+        content:
+          - type: html
+            text: "<div class='brickgroup m-wrapper' 
+                data-renderer='_dynamic' 
+                data-layout-desktop='w12-' 
+                data-layout-tablet='w12-' 
+                data-layout-mobile='w12-' 
+                data-brickid='c6ad6b82-f1a9-4b70-b9ca-b794938e8dc8'>
+                <a class='scroll-to' href='#top-of-page' id='top-anchor'>
+                <span class='icon-arrow-1'></span> 
+                </a> 
+                <ul class='footer-links'>
+                   <li>
+                      <a href='/impressum'>Impressum &amp; Kontakt</a>
+                   </li>
+                   <li>
+                      <a href='/datenschutz'>Datenschutzerklärung</a>
+                   </li>
+                   <li>
+                      <a href='#' onclick='window._sp_.gdpr.loadPrivacyManagerModal(217552);return false;'>Datenschutz-Einstellungen</a>
+                   </li>
+                   <li>
+                      <a href='/agb-digital'>AGB</a>
+                   </li>
+                   <li>
+                      <a href='https://produkte.schwarzwaelder-bote.de/kuendigung/' target='_blank'>Abonnement kündigen</a>
+                   </li>
+                   <li>
+                      <a href='/ethikrichtlinie'>Ethikrichtlinie</a>
+                   </li>
+                   <li>
+                      <a href='https://service.schwarzwaelder-bote.de/cms/wm?catId=12066433' target='_blank'>Mediadaten</a>
+                   </li>
+                   <li class='copyright'>
+                      © schwarzwaelder-bote.de
+                   </li>
+                </ul>
+                <style type='text/css'> .mod-footer .footer-links li.copyright { padding-top: 10px; } </style>
+                <div class='footer-extra'>
+                   <ul>
+                      <li>
+                         Partner
+                      </li>
+                      <li>
+                         <a href='https://www.stuttgarter-zeitung.de/' target='_blank'>Stuttgarter Zeitung </a>
+                      </li>
+                      <li>
+                         <a href='https://www.stuttgarter-nachrichten.de/' target='_blank'>Stuttgarter Nachrichten </a>
+                      </li>
+                      <li>
+                         <a href='https://www.sueddeutsche.de/' target='_blank'>Süddeutsche.de </a>
+                      </li>
+                   </ul>
+                   <ul>
+                      <li>
+                         <a class='mg' href='https://promotion.schwarzwaelder-bote.de' target='_blank'>Promotion-Mitarbeiter gesucht</a>
+                      </li>
+                      <li>
+                         <a class='mg' href='https://stellenmarkt.schwarzwaelder-bote.de/' target='_blank'>Stellenangebote für Fach- und Führungskräfte</a>
+                      </li>
+                   </ul>
+                   <div>
+                      <a class='mg' href='https://www.schwarzwald-tourismus.info/' style='padding-right: 10px;' target='_blank' title='Schwarzwald Tourismus'>
+                      <img alt='Schwarzwald Tourismus' src='/media.media.b3c2642b-a37d-496b-93ed-a48f7d1c8a62.original.jpg' style='height:60px; width:60px' />
+                      </a>
+                   </div>
+                </div>"
+
+    PageContent:
+      description: actual content of a page
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - pagecontent
+          example: pagecontent
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrickGroup'
+    BrickGroup:
+      description: a group of bricks or other groups
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - brickgroup
+          example: brickgroup
+        id:
+          type: string
+          example: b1329ae8-b29c-11ed-afa1-0242ac120002
+        title:
+          type: string
+          example: BG Title
+        cssId:
+          type: string
+          example: css-id
+        cssClass:
+          type: string
+          example: css-class
+        renderMode:
+          $ref: '#/components/schemas/RenderMode'
+        content:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/BrickGroup'
+              - $ref: '#/components/schemas/Brick'
+      required: 
+        - id
+        - title
+        - content
+    Brick:
+      description: a container for a specific page content
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - brick
+          example: brick
+        id:
+          type: string
+          example: c5bbd51a-b29c-11ed-afa1-0242ac120002
+        title:
+          type: string
+          example: Brick Title
+        headline:
+          type: string
+          example: Headline
+        cssId:
+          type: string
+          example: css-id
+        cssClass:
+          type: string
+          example: css-class
+        renderMode:
+          $ref: '#/components/schemas/RenderMode'
+        content:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Teaser'
+              - $ref: '#/components/schemas/Ad'
+              - $ref: '#/components/schemas/Html'
+              - $ref: '#/components/schemas/LoadMore'
+              - $ref: '#/components/schemas/AuthorBox'
+              - $ref: '#/components/schemas/ArticleHeader'
+              - $ref: '#/components/schemas/Image'
+          
+    ArticleHeader:
+      description: Article page header
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - articleheader
+          example: articleheader
+        kicker:
+          type: string
+          example: Kicker
+        headline:
+          type: string
+          example: Headline
+        author:
+          type: string
+          example: Author
+        articleDate:
+          type: string
+          format: date-time
+          example: "2023-02-22T10:11:12+01:00"
+              
+    Teaser:
+      description: A teaser
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - standardteaser
+            - topteaser
+            - tickerteaser
+            - readmoreteaser
+            - recoteaser
+            - compactteaser
+          example: standardteaser
+        title:
+          type: string
+          example: Teaser Title
+        shortTitle:
+          type: string
+          example: Teaser Short Title
+        kicker:
+          type: string
+          example: Teaser Kicker
+        text:
+          type: string
+          example: Teaser Text
+        reference:
+          type: string
+          example: /article/fc2b5e18-b29c-11ed-afa1-0242ac120002
+        publicationDate:
+          type: string
+          format: date-time
+          example: "2023-02-22T10:11:12+01:00"
+        imageCount:
+          type: integer
+          example: 2
+        videoCount:
+          type: integer
+          example: 0
+        paidContent:
+          type: boolean
+          example: false
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        image:
+          $ref: '#/components/schemas/Image'
+          
+    Tag:
+      description: a keyword/tag
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - tag
+          example: tag
+        id:
+          type: string
+          example: 29a0bf50-b29d-11ed-afa1-0242ac120002
+        title:
+          type: string
+          example: Tag Title
+          
+    RenderMode:
+      description: Mode for rendering
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - hard
+            - soft
+            - lazy
+          example: hard
+            
+    Image:
+      description: A image object
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - image
+          example: image
+        id:
+          type: string
+          example: 39cfe7e8-b29d-11ed-afa1-0242ac120002
+        name:
+          type: string
+          example: Image Name
+        caption:
+          type: string
+          example: Image Caption
+        reference:
+          type: string
+          example: https://portal.url.com/media.39cfe7e8-b29d-11ed-afa1-0242ac120002.thumbnail.jpg
+        dimension:
+          $ref: '#/components/schemas/Dimension'
+          
+    Ad:
+      description: advertisement
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - customad
+            - rpdad
+            - nativead
+            - taboolaad
+          example: customad
+        slot:
+          type: string
+          example: Slot ID
+          
+    Html:
+      description: HTML text
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - html
+          example: html
+        text:
+          type: string
+          example: "<div>some markup</div>"
+          
+    LoadMore:
+      description: load additional/more content
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - loadmore
+          example: loadmore
+        title:
+          type: string
+          example: Loadmore Title
+        reference:
+          type: string
+          example: /ressort/cc67d664-b29e-11ed-afa1-0242ac120002
+          
+    AuthorBox:
+      description: infos about the author
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          enum:
+            - author
+          example: author
+        name:
+          type: string
+          example: Author Name
+        email:
+          type: string
+          example: Author Email
+        image:
+          $ref: '#/components/schemas/Image'
+        reference:
+          type: string
+          example: /author/d48e98aa-b41a-11ed-afa1-0242ac120002
+  
+  # Article Page
+  examples:
+    articlePage:
+      value: 
+        type: articlepage
+        id: 748b2882-bf4c-11ed-afa1-0242ac120002
+        title: "Akkordeonorchester präsentiert eigene CD"
+        kicker: "Musiker in Beffendorf"
+        content:
+          - type: htmlhead
+            content:
+              type: html
+              text: "<head> <meta charset='utf-8'> <title>Musiker in Beffendorf: Akkordeonorchester präsentiert eigene CD - Oberndorf &amp; Umgebung - Schwarzwälder Bote</title> <link rel='canonical' href='https://www.schwarzwaelder-bote.de/inhalt.musiker-in-beffendorf-akkordeonorchester-praesentiert-eigene-cd.c9a5b628-20be-4098-963f-cc64c6d99b7c.html'> <meta name='apple-mobile-web-app-capable' content='yes'> <meta name='robots' content='index, follow, noarchive, noodp, noydir'> <meta name='robots' content='max-snippet:-1, max-image-preview:large, max-video-preview:-1'> <link rel='shortcut icon' href='https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/favicon.ico' type='image/ico'> <meta http-equiv='pragma' content='no-cache'> <meta http-equiv='cache-control' content='no-cache'> <meta http-equiv='Content-Language' content='de'> <meta http-equiv='last-modified' content='Wed Feb 22 15:55:05 CET 2023'> <meta name='author' content='Schwarzwälder Bote, Oberndorf, Germany'> <meta name='copyright' content='Schwarzwälder Bote, Oberndorf, Germany'> <meta name='email' content='service@schwarzwaelder-bote.de'> <meta name='siteinfo' content='https://www.schwarzwaelder-bote.de/robots.txt'> <meta name='description' content='Lange musste man warten, doch jetzt endlich ist sie da. Das Akkordeonorchester Beffendorf präsentiert seine neue CD.'> <meta name='keywords' content='Oberndorf a. N.,Kreis Rottweil,Oberndorf &amp; Umgebung,Vereine,Musik'> <meta name='news_keywords' content='Oberndorf a. N.,Kreis Rottweil,Oberndorf &amp; Umgebung,Vereine,Musik'> <meta name='date' content='Wed Feb 22 10:36:00 CET 2023'> <meta property='og:title' content='Musiker in Beffendorf: Akkordeonorchester präsentiert eigene CD'> <meta property='og:type' content='article'> <meta property='og:image' content='https://www.schwarzwaelder-bote.de/media.media.3152b12a-38e0-4afd-a984-436a6ceccbf7.16x9_1024.jpg'> <meta property='og:image:secure_url' content='https://www.schwarzwaelder-bote.de/media.media.3152b12a-38e0-4afd-a984-436a6ceccbf7.16x9_1024.jpg'> <meta property='og:image:width' content='1200'> <meta property='og:image:height' content='675'> <meta property='og:image:type' content='image/jpeg'> <meta property='og:description' content='Lange musste man warten, doch jetzt endlich ist sie da. Das Akkordeonorchester Beffendorf präsentiert seine neue CD.'> <meta property='og:site_name' content='schwarzwaelder-bote.de'> <meta property='og:locale' content='de_DE'> <meta property='og:section' content=' - Oberndorf &amp; Umgebung'> <meta property='og:url' content='https://www.schwarzwaelder-bote.de/inhalt.musiker-in-beffendorf-akkordeonorchester-praesentiert-eigene-cd.c9a5b628-20be-4098-963f-cc64c6d99b7c.html'> <meta property='fb:admins' content='1387464574'> <meta property='fb:app_id' content='125971070947159'> <meta name='twitter:card' content='summary_large_image'> <meta name='twitter:site' content='@schwarzwaelder'> <meta name='twitter:image' content='https://www.schwarzwaelder-bote.de/media.facebook.3152b12a-38e0-4afd-a984-436a6ceccbf7.normalized.jpg'> <meta name='google-site-verification' content='DXNWO6MlvDlolbGoG6oo9nSZHLXUsqAUkOUtJ7wZWxw'> <meta name='apple-itunes-app' content='app-id=444468501'> <link id='mainCss' href='/staticcontent/schwarzwaelder_bote/common/css/main.min.css?v=20230213-1300' type='text/css' rel='stylesheet'> <link rel='shortcut icon' href='https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/favicon.ico' type='image/ico'> <link rel='alternate' title='Schwarzwälder Bote - Oberndorf &amp; Umgebung RSS Feed' href='https://www.schwarzwaelder-bote.de/kreis-rottweil/oberndorf.rss.feed' type='application/rss+xml'> <script type='application/ld+json'> { '@context':'http://schema.org', '@type':'NewsArticle', 'mainEntityOfPage':{ '@type':'WebPage', '@id':'https://www.schwarzwaelder-bote.de/inhalt.musiker-in-beffendorf-akkordeonorchester-praesentiert-eigene-cd.c9a5b628-20be-4098-963f-cc64c6d99b7c.html' }, 'headline':'Musiker in Beffendorf - Akkordeonorchester pr&auml;sentiert eigene CD', 'description':'Lange musste man warten, doch jetzt endlich ist sie da. Das Akkordeonorchester Beffendorf pr&amp;auml;sentiert seine neue CD.', 'image':[ 'https://www.schwarzwaelder-bote.de/media.media.3152b12a-38e0-4afd-a984-436a6ceccbf7.original_1024.jpg', 'https://www.schwarzwaelder-bote.de/media.media.3152b12a-38e0-4afd-a984-436a6ceccbf7.16x9_1024.jpg' ], 'datePublished':'2023-02-22T15:55:05+01:00', 'dateModified':'2023-02-22T15:55:05+01:00', 'author':{ '@type':'Person', 'name':'Ute Lauble' }, 'publisher':{ '@type':'Organization', 'name':'Schwarzwälder Bote', 'url':'https://www.schwarzwaelder-bote.de', 'logo':{ '@type':'ImageObject', 'url':'https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/svg/schwarzwaelder-bote_logo.svg' } }, 'articleSection':'Oberndorf & Umgebung', 'keywords':[ 'Oberndorf a. N.', 'Kreis Rottweil', 'Vereine', 'Musik' ], 'isAccessibleForFree':'True', 'hasPart':{ '@type':'WebPageElement', 'isAccessibleForFree':'True', 'cssSelector':'.paywall' } } </script> </head>"
+          - type: rpdad
+            slot: traffective-ad-Skyscraper
+          - type: header 
+            content:              
+              - type: logo
+                reference: https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/svg/schwarzwaelder-bote_logo.svg
+                link: https://www.schwarzwaelder-bote.de/
+              - type: usernavigation
+                content:
+                  - type: html
+                    text: "<div id='toggleSearch'></div>"
+                  - type: html
+                    text: "<div id='togglePush'></div>"
+                  - type: html
+                    text: "<div id='toggleUser'></div>"
+                  
+              - type: metanavigation
+                content:
+                  - type: toplevelentry
+                    name: MeinSB
+                    label: MeinSB
+                    reference: "/meinsb"
+                  - type: toplevelentry
+                    name: Abo
+                    label: Abo
+                    reference: "https://produkte.schwarzwaelder-bote.de/?itm_campaign=51GR&itm_source=cms&itm_medium=abo&itm_content=button&wt=EONAB&"
+              - type: mainnavigation
+                content: 
+                - type: toplevelentry
+                  name: Main Navigation 1
+                  label: First
+                  reference: "/ressort/1"
+                - type: toplevelentry
+                  name: Main Navigation 2
+                  label: Second
+                  reference: "/ressort/2"
+                - type: section
+                  name: Main Navigation 3
+                  label: Third
+                  reference: "/ressort/3"
+                  elements:
+                    - type: sectionentry
+                      name: Main Sub Navigation 1
+                      label: First Sub
+                      reference: "/ressort/4"
+                    - type: subsection
+                      name: Main Sub Navigation 2
+                      label: Second Sub
+                      reference: "/ressort/5"
+                      elements:
+                        - type: subsectionentry
+                          name: Main Sub Sub Navigation 1
+                          label: First Sub Sub
+                          reference: "/ressort/6"
+                        - type: subsectionentry
+                          name: Main Sub Sub Navigation 2
+                          label: Second Sub Sub
+                          reference: "/ressort/7"
+              - type: rpdad
+                slot: traffective-ad-Billboard
+                    
+              - type: bottomnavigation
+                content:
+                  - type: breadcrumb
+                    content:
+                      - type: breadcrumbitem
+                        name: BreadcrumbItem
+                        reference: "/ressort/1"
+                      - type: breadcrumbitem
+                        name: BreadcrumbItem
+                        reference: "/ressort/2"
+                      - type: breadcrumbitem
+                        name: Akkoredeonorchester präsentiert eigene CD
+                        referernce: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                 
+          - type: pagecontent
+            content: 
+              - type: brickgroup
+                title: Page-Content
+                cssId: pageContent
+                content: 
+                  
+                  # Artikel-Kopf
+                  - type: brick
+                    title: Page-Header
+                    content:
+                      - type: articleheader
+                        kicker:  Musiker in Beffendorf
+                        headline: Akkordeonorchester präsentiert eigene CD
+                        author: Ute Lauble
+                        articleDate: 2023-02-22T15:48:00+01:00
+                  
+                  - type: brickgroup
+                    id: 28c0970b-ca54-42ac-a7dd-5cd3aebda89a
+                    title: BG - Article Content
+                    content:
+                      # Artikel-Bild
+                      - type: brickgroup
+                        id: 998e01a6-b9a5-11ed-afa1-0242ac120002
+                        title: BG Article Image
+                        content:
+                          - type: brick
+                            id: ab47cb84-b9a5-11ed-afa1-0242ac120002
+                            headline:
+                            title: SB - B - Image (Artikel)
+                            cssClass:
+                            cssId:
+                            renderMode:
+                              type: hard
+                            content:
+                                - type: image
+                                  id: d75ddeb8-4961-4f8c-b196-6a5128cd45aa
+                                  name:
+                                  caption: "Jan Lindenmair verlässt die TSG Balingen am Saisonende. Foto: Kara"
+                                  reference: https://www.schwarzwaelder-bote.de/media.media.d75ddeb8-4961-4f8c-b196-6a5128cd45aa.original1024.jpg
+                                  dimension:
+                                    width: 1024
+                                    height: 576
+                      - type: brick
+                        id: a85855fc-c1a1-11ed-afa1-0242ac120002
+                        title: Appetizer
+                        content:
+                          # Appetizer
+                          - type: html
+                            text: "<p>Lange musste man warten, doch jetzt endlich ist sie da. Das Akkordeonorchester Beffendorf präsentiert seine neue CD.</p>"
+                      - type: brick
+                        id: c341297a-c1a1-11ed-afa1-0242ac120002
+                        title: Social Share
+                        content:
+                          # Teilen über Socialmedia
+                          - type: html
+                            text: "<div class='sharewrapper' id='article-social-bar'><ul><li class='hidedesk whatsapp'><a href='whatsapp://send?text=TSG%20Balingen%20verliert%20Manager%3AJan%20Lindenmair%20wechselt%20in%20die%20Wirtschaft+https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html%3Futm_source%3DWhatsapp%26utm_medium%3DSocial%26utm_campaign%3Dshare' id='whatsapp' ontouchend='this.onclick=fix' title='Auf WhatsApp teilen'>&nbsp; </a></li><li class='mail'><a href='mailto:?subject=Schwarzwälder Bote%20-%20Jan Lindenmair wechselt in die Wirtschaft&amp;body=Jan Lindenmair wechselt in die Wirtschaft%0Ahttps://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html' id='mail'>&nbsp; </a></li><li class='shareOverlayOpener'><a id='shareOverlayOpener'>&nbsp; </a></li><li class='hidemobile druck'><a id='print' onclick='window.print();return false;'>&nbsp; </a></li><li class='perlink'><a id='link_copy' onclick='copyToClipboard()'>&nbsp; </a><div class='confirm' id='confirm'>Link&nbsp;kopiert</div></li><li class='bookmark'><button class='bookmark-article' data-config='{&quot;headline&quot;:&quot;Jan Lindenmair wechselt in die Wirtschaft&quot;,&quot;type&quot;:&quot;article&quot;,&quot;link&quot;:&quot;https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html&quot;,&quot;id&quot;:&quot;4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34&quot;}' data-type='follow'></button></li></ul><div class='shareOverlayTemplateWrapper'><div class='closeSocialOverlay socialOverlayBackground'>&nbsp;</div><div class='socialOverlayContainer'><div class='closeIconContainer'><img alt='Schließen' class='closeSocialOverlay' src='/staticcontent/stuttgarter_nachrichten/common-resp18/svg/icon-close-no_whitepace.svg'></div><h3>Diesen Artikel teilen</h3><ul class='shareOverlayList'><li class='hidedesk whatsapp'><a href='whatsapp://send?text=TSG Balingen verliert Manager:Jan Lindenmair wechselt in die Wirtschaft+https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html%3Futm_source%3DWhatsapp%26utm_medium%3DSocial%26utm_campaign%3Dshare' id='whatsapp' ontouchend='this.onclick=fix' title='Auf WhatsApp teilen'>&nbsp; </a></li><li class='mail'><a href='mailto:?subject=Schwarzwälder Bote%20-%20Jan Lindenmair wechselt in die Wirtschaft&amp;body=Jan Lindenmair wechselt in die Wirtschaft%0Ahttps://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html' id='mail'>&nbsp; </a></li><li class='facebook'><a href='https://www.facebook.com/sharer/sharer.php?u=https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html' id='facebook' target='_blank'>&nbsp; </a></li><li class='twitter'><a href='https://twitter.com/share?text=TSG Balingen verliert Manager:Jan Lindenmair wechselt in die Wirtschaft&amp;url=https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html' id='twitter' target='_blank'>&nbsp; </a></li><li class='flipboard'><a href='https://share.flipboard.com/bookmarklet/popout?v=2&amp;title=TSG Balingen verliert Manager:Jan Lindenmair wechselt in die Wirtschaft&amp;url=https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html%3Futm_source%3DFlipboard%26utm_medium%3DSocial%26utm_campaign%3Dshare' id='flipboard' target='_blank' title='Auf Flipboard teilen'>&nbsp; </a></li><li class='hidemobile pocket'><a href='https://getpocket.com/edit?url=https://www.schwarzwaelder-bote.de/inhalt.tsg-balingen-verliert-manager-jan-lindenmair-wechselt-in-die-wirtschaft.4bed6cb0-ee3e-4f76-9890-d4ad5feb5a34.html%3Futm_source%3DPocket%26utm_medium%3DSocial%26utm_campaign%3Dshare' id='pocket' target='_blank'>&nbsp; </a></li></ul></div></div></div>"                        
+                      
+                      - type: brick
+                        id: e4fae72c-c1a1-11ed-afa1-0242ac120002
+                        title: Paragraphs
+                        content:
+                          # Paragraph
+                          - type: html
+                            text: "<p>Mit dem Stück „Games of Throne“, eröffnete das Akkordeonorchester Beffendorf musikalisch den Abend im Gemeindehaus, an dem sie voller Freude ihre neue CD vorstellen konnten.</p>"
+
+                          # Paragraph
+                          - type: html
+                            text: "<p>Eigentlich, so der Vorsitzende Eugen Werner, hätte sie schon im Jahr 2022 fertig werden sollen, aber verschiedene Gründe hätten die Auslieferung verzögert. Doch „nach langem Warten ist sie endlich da.“</p>"
+
+                      # Lesen Sie auch
+                      - type: brickgroup
+                        id: a2eb596f-c200-4284-aeae-b05d0185dda8
+                        title: BG Lesen Sie auch
+                        content:
+                          - type: brick
+                            id: 5fd267c1-eb48-4d1e-8dbc-627d0025a0f2
+                            headline: Lesen Sie auch
+                            title: STZ-RSP18 - B - Upscore Leseempfehlung (Artikel)
+                            cssClass: recart
+                            cssId:
+                            renderMode:
+                              type: hard
+                            content:
+                              - type: readmoreteaser
+                                title: 25 Azubi-Gehälter im Vergleich
+                                shortTitle: 25 Azubi-Gehälter im Vergleich
+                                kicker: Von Gerüstbauer bis Schornsteinfeger
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                                publicationDate: 2023-03-02T06:00:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: true
+                                tags:
+                                  - type: tag
+                                    id: 434cef92-b922-11ed-afa1-0242ac120002
+                                    title: Wirtschaft
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                  - type: tag
+                                    id: 3c666b90-b922-11ed-afa1-0242ac120002
+                                    title: Infografik
+                                  - type: tag
+                                    id: 385aeb3e-b922-11ed-afa1-0242ac120002
+                                    title: Azubi-Gehälter 
+                                image: 
+                                    type: image
+                                    id: 10868164-458c-4784-b49d-f7fb62955286
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335
+
+                              - type: readmoreteaser
+                                title: Intendant beklagt mangelnde Wertschätzung
+                                shortTitle: Intendant beklagt mangelnde Wertschätzung
+                                kicker: Ludwigsburger Schlossfestspiele
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                                publicationDate: 2023-03-02T15:43:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: true
+                                tags:
+                                  - type: tag
+                                    id: e2c52bc0-b922-11ed-afa1-0242ac120002
+                                    title: Programm
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                  - type: tag
+                                    id: f9fce6f2-b922-11ed-afa1-0242ac120002
+                                    title: Jochen Sandig
+                                image: 
+                                    type: image
+                                    id: 42622677-8e30-4af8-acf2-275d16402d71
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335    
+
+                              - type: readmoreteaser
+                                title: Überall Probleme mit dem Geld
+                                shortTitle: Überall Probleme mit dem Geld
+                                kicker: VfB-Boss Alexander Wehrle
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                                publicationDate: 2023-03-02T16:02:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: false
+                                tags:
+                                  - type: tag
+                                    id: 865e2fac-b923-11ed-afa1-0242ac120002
+                                    title: VFB Stuttgart
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                  - type: tag
+                                    id: 9858b7e0-b923-11ed-afa1-0242ac120002
+                                    title: Finanzen
+                                image: 
+                                    type: image
+                                    id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335    
+                      - type: brick
+                        id: 08fe3cdc-c1a2-11ed-afa1-0242ac120002
+                        title: Paragraphs
+                        content:
+                          # Paragraph
+                          - type: html
+                            text: "<h2>Vereinsleben durcheinander gewirbelt</h2><p>Corona, so Eugen Werner, hat so manches Vereinsleben durcheinander gewirbelt. Das Akkordeonorchester Beffendorf nutzte diese Zeit und bewarb sich beim Förderprogramm „Neustart Amateurmusik“ des Bundesmusikverbands Chor & Orchester und bekam den Zuschlag. „Wir halten zusammen – gemeinsam mit Musik durch die Coronazeit“, lautete der Projekttitel. Die Argumentation „Mit viel Engagement und Einsatz haben wir versucht, auf dem Weg zu bleiben. Das Ergebnis aus den Proben nach Playalongs, in kleinen Gruppen, Stimmproben sowie dem Üben zu Hause und dem Neustart nach langen Monaten getrennt seins möchten wir auf einer CD festhalten“, überzeugte die Jury.</p>"
+                      
+                          #Paragraph
+                          - type: html
+                            text: "<h2>Im November aufgenommen</h2><p>Nach intensiver Probenarbeit, die den Zusammenhalt der Spieler weiter festigte, war es dann im November so weit, dass die CD aufgenommen werden konnte. Gemeinsam mit allen drei Orchestern fuhr man nach Trossingen in die Bundesakademie für musikalische Jugendbildung. Dort konnten unter perfekten Rahmenbedingungen die Aufnahmen unter der Regie des international bekannten Tonmeisters Matthias Reusch eingespielt werden.</p>"
+      
+                          # Paragraph
+                          - type: html
+                            text: "<p>Große Freude beim Projekt hatte auch die Jugend des Vereins. Sie waren nicht nur bei den Tonaufnahmen, sondern auch bei der Gestaltung des CD-Covers dabei. Unter Anleitung des Graffiti-Künstlers Fabian Kitzke entstand beim Besprühen einer Holzwand die Vorlage für das CD-Cover.</p>"
+        
+                          # Paragraph
+                          - type: html
+                            text: "<h2>Blumen für Dirigentinnen</h2><p>Mit einem Blumenstrauß bedankte sich der Vorsitzende Eugen Werner noch ganz besonders bei den Dirigentinnen der drei Orchester, die die Spieler bestens auf den Aufnahmetermin vorbereitet haben. Nicht zu vergessen sei, so Eugen Werner, Michael Roth. Unzählige Stunden habe er am PC verbracht, um das Booklet für die CD zu gestalten.</p>"
+
+                          # Paragraph
+                          - type: html
+                            text: "<p>Mit dem Motto-Lied „Wir halten zusammen“ verabschiedete sich das Akkordeonorchester musikalisch bei seinen Gästen und lud anschließend ein, auf die CD gemeinsam anzustoßen. Ab sofort ist diese bei allen Orchestermitgliedern zum Preis von 15 Euro käuflich zu erwerben.</p>"
+                      
+                      - type: brick
+                        id: 3940e3ea-c1a2-11ed-afa1-0242ac120002
+                        title: Ad
+                        content:
+                          # Taboola Feed Ad
+                          - type: taboolaad
+                            slot: taboola-below-article-thumbnails
+
+                      # Lesen Sie auch
+                      - type: brickgroup
+                        id: cb5cde5f-6ee5-4b7b-bb9c-a0b4435dc4ae
+                        title: BG - Bottom Lesen Sie auch
+                        content:
+                          - type: brick
+                            id: de3cbc62-d8d2-4528-9563-905f41edb018
+                            headline: Lesen Sie auch
+                            title: STZ-RSP18 - B - Upscore Leseempfehlung (Artikel) bottom
+                            cssClass: recart
+                            cssId:
+                            renderMode:
+                              type: hard
+                            content:
+                              - type: readmoreteaser
+                                title: Immer weniger Menschen wollen Lehrer werden
+                                shortTitle: Immer weniger Menschen wollen Lehrer werden
+                                kicker: Problemzone Schule
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.problemzone-schule-immer-weniger-menschen-wollen-lehrer-werden.de3cbc62-d8d2-4528-9563-905f41edb018.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                                publicationDate: 2023-03-02T16:10:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: true
+                                tags:
+                                  - type: tag
+                                    id: 6ad3f8ae-b9a3-11ed-afa1-0242ac120002
+                                    title: Lehrer
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                image: 
+                                    type: image
+                                    id: e6b22568-f675-42a6-9951-a8923b194911
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.e6b22568-f675-42a6-9951-a8923b194911.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335
+
+                              - type: readmoreteaser
+                                title: Ein Land muss Farbe bekennen
+                                shortTitle: Ein Land muss Farbe bekennen
+                                kicker: Sexuelle Minderheiten in der der Slowakei
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                                publicationDate: 2023-03-03T09:39:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: true
+                                tags:
+                                  - type: tag
+                                    id: d708a902-b9a3-11ed-afa1-0242ac120002
+                                    title: LGBTQ
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                  - type: tag
+                                    id: f186525c-b9a3-11ed-afa1-0242ac120002
+                                    title: Polen
+                                image: 
+                                    type: image
+                                    id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335    
+
+                              - type: readmoreteaser
+                                title: Wunderbarer Pfannkuchen auf japanisch
+                                shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                                kicker: Nachgekocht
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                                publicationDate: 2023-03-01T15:03:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: false
+                                tags:
+                                  - type: tag
+                                    id: 71e7ffae-b9a4-11ed-afa1-0242ac120002
+                                    title: Rezept
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                  - type: tag
+                                    id: 6d21c25c-b9a4-11ed-afa1-0242ac120002
+                                    title: Nachgekocht
+                                image: 
+                                    type: image
+                                    id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335
+                              - type: readmoreteaser
+                                title: „Alle dabei“ – Gewerkschaft zufrieden mit dem Start des Warnstreiks
+                                shortTitle: „Alle dabei“ – Gewerkschaft zufrieden mit dem Start des Warnstreiks
+                                kicker: Bus und Bahn in Baden-Württemberg
+                                reference: https://www.stuttgarter-zeitung.de/inhalt.bus-und-bahn-in-baden-wuerttemberg-alle-dabei-gewerkschaft-zufrieden-mit-dem-start-des-warnstreiks.004067ad-06f4-4107-8b39-0d15a17bc5c1.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                                publicationDate: 2023-03-04T12:11:00+01:00
+                                imageCount: 1
+                                videoCount: 0
+                                paidContent: false
+                                tags:
+                                  - type: tag
+                                    id: 02711b28-b9a5-11ed-afa1-0242ac120002
+                                    title: ÖPNV
+                                  - type: tag
+                                    id: 3ffb3e5c-b922-11ed-afa1-0242ac120002
+                                    title: Aufamcher
+                                  - type: tag
+                                    id: 063d1554-b9a5-11ed-afa1-0242ac120002
+                                    title: Warnstreik
+                                image: 
+                                    type: image
+                                    id: f789bc72-40aa-4b4e-8ac0-21dbba8a175c
+                                    name:
+                                    caption: 
+                                    reference: https://www.stuttgarter-zeitung.de/media.media.f789bc72-40aa-4b4e-8ac0-21dbba8a175c.original_1024.jpg
+                                    dimension:
+                                      width: 510
+                                      height: 335
+                  - type: brickgroup
+                    id: 9118517e-127c-495e-9919-2facec9ddb95
+                    title: BG sidebar
+                    content:
+                      - type: brick
+                        id: 663e7aa6-c1a2-11ed-afa1-0242ac120002
+                        title: Ads
+                        content:
+                          - type: rpdad
+                            slot: traffective-ad-Rectangle_1
+                          - type: rpdad
+                            slot: traffective-ad-Rectangle_2
+                          - type: nativead
+                            slot: nativendo-placement-article
+                          - type: customad
+                            slot: adshop_2840396409
+          - type: footer
+            content:
+              - type: html
+                text: "<div class='brickgroup m-wrapper' 
+                    data-renderer='_dynamic' 
+                    data-layout-desktop='w12-' 
+                    data-layout-tablet='w12-' 
+                    data-layout-mobile='w12-' 
+                    data-brickid='c6ad6b82-f1a9-4b70-b9ca-b794938e8dc8'>
+                    <a class='scroll-to' href='#top-of-page' id='top-anchor'>
+                    <span class='icon-arrow-1'></span> 
+                    </a> 
+                    <ul class='footer-links'>
+                       <li>
+                          <a href='/impressum'>Impressum &amp; Kontakt</a>
+                       </li>
+                       <li>
+                          <a href='/datenschutz'>Datenschutzerklärung</a>
+                       </li>
+                       <li>
+                          <a href='#' onclick='window._sp_.gdpr.loadPrivacyManagerModal(217552);return false;'>Datenschutz-Einstellungen</a>
+                       </li>
+                       <li>
+                          <a href='/agb-digital'>AGB</a>
+                       </li>
+                       <li>
+                          <a href='https://produkte.schwarzwaelder-bote.de/kuendigung/' target='_blank'>Abonnement kündigen</a>
+                       </li>
+                       <li>
+                          <a href='/ethikrichtlinie'>Ethikrichtlinie</a>
+                       </li>
+                       <li>
+                          <a href='https://service.schwarzwaelder-bote.de/cms/wm?catId=12066433' target='_blank'>Mediadaten</a>
+                       </li>
+                       <li class='copyright'>
+                          © schwarzwaelder-bote.de
+                       </li>
+                    </ul>
+                    <style type='text/css'> .mod-footer .footer-links li.copyright { padding-top: 10px; } </style>
+                    <div class='footer-extra'>
+                       <ul>
+                          <li>
+                             Partner
+                          </li>
+                          <li>
+                             <a href='https://www.stuttgarter-zeitung.de/' target='_blank'>Stuttgarter Zeitung </a>
+                          </li>
+                          <li>
+                             <a href='https://www.stuttgarter-nachrichten.de/' target='_blank'>Stuttgarter Nachrichten </a>
+                          </li>
+                          <li>
+                             <a href='https://www.sueddeutsche.de/' target='_blank'>Süddeutsche.de </a>
+                          </li>
+                       </ul>
+                       <ul>
+                          <li>
+                             <a class='mg' href='https://promotion.schwarzwaelder-bote.de' target='_blank'>Promotion-Mitarbeiter gesucht</a>
+                          </li>
+                          <li>
+                             <a class='mg' href='https://stellenmarkt.schwarzwaelder-bote.de/' target='_blank'>Stellenangebote für Fach- und Führungskräfte</a>
+                          </li>
+                       </ul>
+                       <div>
+                          <a class='mg' href='https://www.schwarzwald-tourismus.info/' style='padding-right: 10px;' target='_blank' title='Schwarzwald Tourismus'>
+                          <img alt='Schwarzwald Tourismus' src='/media.media.b3c2642b-a37d-496b-93ed-a48f7d1c8a62.original.jpg' style='height:60px; width:60px' />
+                          </a>
+                       </div>
+                    </div>"
+
+    # Ressort Page
+    ressortPage:
+      value: 
+        type: ressortpage
+        id: bd92550a-bf4c-11ed-afa1-0242ac120002
+        title: "Nachrichten aus dem Kreis Rottweil"
+        kicker: ""
+        content:
+          - type: htmlhead
+            content:
+              type: html
+              text: '<head>      
+                      <meta charset="utf-8">
+                      <title>Nachrichten aus dem Kreis Rottweil - Schwarzwälder Bote</title>
+                      <link rel="canonical" href="https://www.schwarzwaelder-bote.de/rottweil">
+                      <meta name="apple-mobile-web-app-capable" content="yes">
+                      <meta name="robots" content="index, follow, noarchive, noodp, noydir">
+                      <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+                      <link rel="shortcut icon" href="https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/favicon.ico" type="image/ico">
+                      <meta http-equiv="pragma" content="no-cache">
+                      <meta http-equiv="cache-control" content="no-cache">
+                      <meta http-equiv="Content-Language" content="de">
+                      <meta http-equiv="last-modified" content="Tue Mar 07 16:00:27 CET 2023">  
+                      <meta name="author" content="Schwarzwälder Bote, Oberndorf, Germany">
+                      <meta name="copyright" content="Schwarzwälder Bote, Oberndorf, Germany">
+                      <meta name="email" content="service@schwarzwaelder-bote.de">
+                      <meta name="siteinfo" content="https://www.schwarzwaelder-bote.de/robots.txt">
+                      <meta name="description" content="Die aktuellsten Nachrichten für den Kreis Rottweil und die Städte Schramberg, Oberndorf, Sulz, Eschachtal und Umgebung gibt es auf schwarzwaelder-bote.de">
+                      <meta name="keywords" content="Rottweil, Kreis Rottweil">
+                      <meta name="news_keywords" content="Rottweil, Kreis Rottweil">
+                      <meta name="date" content="Tue Mar 07 16:00:27 CET 2023">
+                      <meta property="og:title" content="Nachrichten aus dem Kreis Rottweil">
+                      <meta property="og:type" content="website">
+                      <meta property="og:image" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg">  
+                      <meta property="og:image:secure_url" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg"> 
+                      <meta property="og:image:width" content="1200"> 
+                      <meta property="og:image:height" content="675"> 
+                      <meta property="og:image:type" content="image/jpeg"> 
+                      <meta property="og:description" content="Die aktuellsten Nachrichten für den Kreis Rottweil und die Städte Schramberg, Oberndorf, Sulz, Eschachtal und Umgebung gibt es auf schwarzwaelder-bote.de">
+                      <meta property="og:site_name" content="schwarzwaelder-bote.de">
+                      <meta property="og:locale" content="de_DE">  
+                      <meta property="og:section" content="">
+                      <meta property="og:url" content="https://www.schwarzwaelder-bote.de/rottweil">
+                      <meta name="google-site-verification" content="DXNWO6MlvDlolbGoG6oo9nSZHLXUsqAUkOUtJ7wZWxw">
+                      <meta property="fb:admins" content="1387464574">
+                      <meta property="fb:app_id" content="125971070947159">
+                      <meta name="twitter:card" content="summary_large_image">
+                      <meta name="twitter:site" content="@schwarzwaelder">
+                      <meta name="twitter:image" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg">
+                      <meta name="apple-itunes-app" content="app-id=444468501">
+                      <link id="mainCss" href="https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/css/main.min.css?v=20230213-1300" type="text/css" rel="stylesheet">
+                      <link rel="shortcut icon" href="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/favicon.ico" type="image/ico">
+                      <link rel="alternate" title="Schwarzwälder Bote - Rottweil RSS Feed" href="https://www.schwarzwaelder-bote.de/rottweil.rss.feed" type="application/rss+xml"> 
+                  </head>'
+          - type: rpdad
+            slot: traffective-ad-Skyscraper
+          - type: header 
+            content:              
+              - type: logo
+                reference: https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/svg/schwarzwaelder-bote_logo.svg
+                link: https://www.schwarzwaelder-bote.de/
+              - type: usernavigation
+                content:
+                  - type: html
+                    text: "<div id='toggleSearch'></div>"
+                  - type: html
+                    text: "<div id='togglePush'></div>"
+                  - type: html
+                    text: "<div id='toggleUser'></div>"
+                  
+              - type: metanavigation
+                content:
+                  - type: toplevelentry
+                    name: MeinSB
+                    label: MeinSB
+                    reference: "/meinsb"
+                  - type: toplevelentry
+                    name: Abo
+                    label: Abo
+                    reference: "https://produkte.schwarzwaelder-bote.de/?itm_campaign=51GR&itm_source=cms&itm_medium=abo&itm_content=button&wt=EONAB&"
+              - type: mainnavigation
+                content: 
+                - type: toplevelentry
+                  name: Main Navigation 1
+                  label: First
+                  reference: "/ressort/1"
+                - type: toplevelentry
+                  name: Main Navigation 2
+                  label: Second
+                  reference: "/ressort/2"
+                - type: section
+                  name: Main Navigation 3
+                  label: Third
+                  reference: "/ressort/3"
+                  elements:
+                    - type: sectionentry
+                      name: Main Sub Navigation 1
+                      label: First Sub
+                      reference: "/ressort/4"
+                    - type: subsection
+                      name: Main Sub Navigation 2
+                      label: Second Sub
+                      reference: "/ressort/5"
+                      elements:
+                        - type: subsectionentry
+                          name: Main Sub Sub Navigation 1
+                          label: First Sub Sub
+                          reference: "/ressort/6"
+                        - type: subsectionentry
+                          name: Main Sub Sub Navigation 2
+                          label: Second Sub Sub
+                          reference: "/ressort/7"
+                  
+              - type: rpdad
+                slot: traffective-ad-Billboard
+                    
+              - type: bottomnavigation
+                content:
+                  - type: breadcrumb
+                    content:
+                    - type: breadcrumbitem
+                      name: BreadcrumbItem
+                      reference: "/ressort/1"
+                    - type: breadcrumbitem
+                      name: BreadcrumbItem
+                      reference: "/ressort/2"
+                 
+          - type: pagecontent
+            content: 
+              # Topteaser
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: STZ-RSP18 - B - Ressort Teaser Group (Topteaser)
+                renderMode:
+                  type: hard
+                content:
+                  - type: brick
+                    id: 0d8f3740-c19a-11ed-afa1-0242ac120002
+                    title: Teaser Group
+                    content:
+                      - type: standardteaser
+                        title: Wie steht es um die Zukunft des Krankenhauses?
+                        shortTitle: Zukunft des Krankenhauses?
+                        kicker: Versorgung in Oberndorf
+                        reference: https://www.musterseite.de
+                        publicationDate: 2023-03-30T16:10:00+01:00
+                        imageCount: 2
+                        videoCount: 0
+                        paidContent: true
+                        image: 
+                            type: image
+                            id: e6b22568-f675-42a6-9951-a8923b194911
+                            name:
+                            caption: 
+                            reference: https://www.schwarzwaelder-bote.de/media.media.85ffeda4-46af-4812-9f59-12ee7e47079d.original1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335
+                      
+                      # teaser 1
+                      - type: standardteaser
+                        title: 25 Azubi-Gehälter im Vergleich
+                        shortTitle: 25 Azubi-Gehälter im Vergleich
+                        kicker: Von Gerüstbauer bis Schornsteinfeger
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                        publicationDate: 2023-03-02T06:00:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                            type: image
+                            id: 10868164-458c-4784-b49d-f7fb62955286
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335
+                      # teaser 2
+                      - type: standardteaser
+                        title: Intendant beklagt mangelnde Wertschätzung
+                        shortTitle: Intendant beklagt mangelnde Wertschätzung
+                        kicker: Ludwigsburger Schlossfestspiele
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T15:43:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                            type: image
+                            id: 42622677-8e30-4af8-acf2-275d16402d71
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335    
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: STZ-RSP18 - B - Ressort Teaser Group
+                content:
+                - type: brick
+                  id: a1d7d998-c19a-11ed-afa1-0242ac120002
+                  title: Teaser Group
+                  content:
+                    # teaser 1
+                    - type: standardteaser
+                      title: 25 Azubi-Gehälter im Vergleich
+                      shortTitle: 25 Azubi-Gehälter im Vergleich
+                      kicker: Von Gerüstbauer bis Schornsteinfeger
+                      reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                      publicationDate: 2023-03-02T06:00:00+01:00
+                      imageCount: 2
+                      videoCount: 0
+                      paidContent: true  
+                      image: 
+                        type: image
+                        id: 10868164-458c-4784-b49d-f7fb62955286
+                        name:
+                        caption: 
+                        reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                        dimension:
+                          width: 510
+                          height: 335
+                    # teaser 2
+                    - type: standardteaser
+                      title: Intendant beklagt mangelnde Wertschätzung
+                      shortTitle: Intendant beklagt mangelnde Wertschätzung
+                      kicker: Ludwigsburger Schlossfestspiele
+                      reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                      publicationDate: 2023-03-02T15:43:00+01:00
+                      imageCount: 1
+                      videoCount: 0
+                      paidContent: true  
+                      image: 
+                        type: image
+                        id: 42622677-8e30-4af8-acf2-275d16402d71
+                        name:
+                        caption: 
+                        reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                        dimension:
+                          width: 510
+                          height: 335    
+                    # teaser 3
+                    - type: standardteaser
+                      title: Überall Probleme mit dem Geld
+                      shortTitle: Überall Probleme mit dem Geld
+                      kicker: VfB-Boss Alexander Wehrle
+                      reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                      publicationDate: 2023-03-02T16:02:00+01:00
+                      imageCount: 1
+                      videoCount: 0
+                      paidContent: false  
+                      image: 
+                          type: image
+                          id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335  
+                    # teaser 4 
+                    - type: standardteaser
+                      title: Immer weniger Menschen wollen Lehrer werden
+                      shortTitle: Immer weniger Menschen wollen Lehrer werden
+                      kicker: Problemzone Schule
+                      reference: https://www.stuttgarter-zeitung.de/inhalt.problemzone-schule-immer-weniger-menschen-wollen-lehrer-werden.de3cbc62-d8d2-4528-9563-905f41edb018.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                      publicationDate: 2023-03-02T16:10:00+01:00
+                      imageCount: 0
+                      videoCount: 0
+                      paidContent: true
+                    # teaser 5
+                    - type: standardteaser
+                      title: Ein Land muss Farbe bekennen
+                      shortTitle: Ein Land muss Farbe bekennen
+                      kicker: Sexuelle Minderheiten in der der Slowakei
+                      reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                      publicationDate: 2023-03-03T09:39:00+01:00
+                      imageCount: 1
+                      videoCount: 0
+                      paidContent: true  
+                      image: 
+                        type: image
+                        id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                        name:
+                        caption: 
+                        reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                        dimension:
+                          width: 510
+                          height: 335    
+                    # teaser 6
+                    - type: standardteaser
+                      title: Wunderbarer Pfannkuchen auf japanisch
+                      shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                      kicker: Nachgekocht
+                      reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                      publicationDate: 2023-03-01T15:03:00+01:00
+                      imageCount: 2
+                      videoCount: 0
+                      paidContent: false  
+                      image: 
+                        type: image
+                        id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                        name:
+                        caption: 
+                        reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                        dimension:
+                          width: 510
+                          height: 335
+              
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: Ad Group
+                content:
+                  - type: brick
+                    id: 5f04dcbe-c19b-11ed-afa1-0242ac120002
+                    title: Ads
+                    content:
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle1
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle2
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle3
+                    
+              - type: brickgroup
+                id: de3cbc62-d8d2-4522-9563-905f41edb018
+                title: Ad-Group
+                content:
+                - type: brick
+                  id: 87c833b2-c19b-11ed-afa1-0242ac120002
+                  title: Ad With Blockheader       
+                  headline: Sonderthemen
+                  content:
+                    - type: html
+                      text: '<div class="docsbyweekli" data-host="schwarzwaelder-bote.weekli.pub" data-key="B86EC9E2-031B-4415-AB72-97C4F2DA09A4" data-max-results="20" data-show-title="true" data-slot="191" data-target-blank="true" id="docsbyweekli-191" style="display:block; height:220px; position:relative; width:auto">&nbsp;</div>
+                        <script async src="https://static.weekli.systems/pub/widget/widget-loader-1.3.min.js"></script>'
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: Teaser Group
+                content:
+                  - type: brick
+                    id: a0be2f0c-c19b-11ed-afa1-0242ac120002
+                    title: Teaser
+                    content:
+                      # teaser 1
+                      - type: standardteaser
+                        title: 25 Azubi-Gehälter im Vergleich
+                        shortTitle: 25 Azubi-Gehälter im Vergleich
+                        kicker: Von Gerüstbauer bis Schornsteinfeger
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                        publicationDate: 2023-03-02T06:00:00+01:00
+                        imageCount: 1
+                        videoCount: 1
+                        paidContent: true  
+                        image: 
+                          type: image
+                          id: 10868164-458c-4784-b49d-f7fb62955286
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335
+                      # teaser 2
+                      - type: standardteaser
+                        title: Intendant beklagt mangelnde Wertschätzung
+                        shortTitle: Intendant beklagt mangelnde Wertschätzung
+                        kicker: Ludwigsburger Schlossfestspiele
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T15:43:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                          type: image
+                          id: 42622677-8e30-4af8-acf2-275d16402d71
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335    
+                    
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: Teaser Group
+                content:
+                  - type: brick
+                    id: e804ae68-c19b-11ed-afa1-0242ac120002
+                    title: Teaser
+                    content:
+                      # teaser 1
+                      - type: standardteaser
+                        title: 25 Azubi-Gehälter im Vergleich
+                        shortTitle: 25 Azubi-Gehälter im Vergleich
+                        kicker: Von Gerüstbauer bis Schornsteinfeger
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                        publicationDate: 2023-03-02T06:00:00+01:00
+                        imageCount: 1
+                        videoCount: 1
+                        paidContent: true  
+                        image: 
+                          type: image´
+                          id: 10868164-458c-4784-b49d-f7fb62955286
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335
+                      # teaser 2
+                      - type: standardteaser
+                        title: Intendant beklagt mangelnde Wertschätzung
+                        shortTitle: Intendant beklagt mangelnde Wertschätzung
+                        kicker: Ludwigsburger Schlossfestspiele
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T15:43:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                          type: image
+                          id: 42622677-8e30-4af8-acf2-275d16402d71
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335    
+                      # teaser 3
+                      - type: standardteaser
+                        title: Überall Probleme mit dem Geld
+                        shortTitle: Überall Probleme mit dem Geld
+                        kicker: VfB-Boss Alexander Wehrle
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T16:02:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: false  
+                        image: 
+                          type: image
+                          id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335  
+                      # teaser 4 
+                      - type: standardteaser
+                        title: Immer weniger Menschen wollen Lehrer werden
+                        shortTitle: Immer weniger Menschen wollen Lehrer werden
+                        kicker: Problemzone Schule
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.problemzone-schule-immer-weniger-menschen-wollen-lehrer-werden.de3cbc62-d8d2-4528-9563-905f41edb018.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T16:10:00+01:00
+                        imageCount: 0
+                        videoCount: 0
+                        paidContent: true
+                      # teaser 5
+                      - type: standardteaser
+                        title: Ein Land muss Farbe bekennen
+                        shortTitle: Ein Land muss Farbe bekennen
+                        kicker: Sexuelle Minderheiten in der der Slowakei
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-0309:39:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                          type: image
+                          id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335    
+                      # teaser 6
+                      - type: standardteaser
+                        title: Wunderbarer Pfannkuchen auf japanisch
+                        shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                        kicker: Nachgekocht
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-01T15:03:00+01:00
+                        imageCount: 1
+                        videoCount: 1
+                        paidContent: false  
+                        image: 
+                          type: image
+                          id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                          name:
+                          caption: 
+                          reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                          dimension:
+                            width: 510
+                            height: 335
+                    
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: Ad Group
+                content:
+                  - type: brick
+                    id: 78920ac0-c19c-11ed-afa1-0242ac120002
+                    title: Ads
+                    content:
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle4
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle5
+                  
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: Load More
+                description: load additional/more content
+                content:
+                  - type: brick
+                    id: b69b67bc-c19c-11ed-afa1-0242ac120002
+                    title: Load more
+                    content:
+                    - type: loadmore
+                      title: Loadmore Title
+                      reference: /ressort/cc67d664-b29e-11ed-afa1-0242ac120002
+            
+          - type: footer
+            content:
+              - type: html
+                text: "<div class='brickgroup m-wrapper' 
+                    data-renderer='_dynamic' 
+                    data-layout-desktop='w12-' 
+                    data-layout-tablet='w12-' 
+                    data-layout-mobile='w12-' 
+                    data-brickid='c6ad6b82-f1a9-4b70-b9ca-b794938e8dc8'>
+                    <a class='scroll-to' href='#top-of-page' id='top-anchor'>
+                    <span class='icon-arrow-1'></span> 
+                    </a> 
+                    <ul class='footer-links'>
+                       <li>
+                          <a href='/impressum'>Impressum &amp; Kontakt</a>
+                       </li>
+                       <li>
+                          <a href='/datenschutz'>Datenschutzerklärung</a>
+                       </li>
+                       <li>
+                          <a href='#' onclick='window._sp_.gdpr.loadPrivacyManagerModal(217552);return false;'>Datenschutz-Einstellungen</a>
+                       </li>
+                       <li>
+                          <a href='/agb-digital'>AGB</a>
+                       </li>
+                       <li>
+                          <a href='https://produkte.schwarzwaelder-bote.de/kuendigung/' target='_blank'>Abonnement kündigen</a>
+                       </li>
+                       <li>
+                          <a href='/ethikrichtlinie'>Ethikrichtlinie</a>
+                       </li>
+                       <li>
+                          <a href='https://service.schwarzwaelder-bote.de/cms/wm?catId=12066433' target='_blank'>Mediadaten</a>
+                       </li>
+                       <li class='copyright'>
+                          © schwarzwaelder-bote.de
+                       </li>
+                    </ul>
+                    <style type='text/css'> .mod-footer .footer-links li.copyright { padding-top: 10px; } </style>
+                    <div class='footer-extra'>
+                       <ul>
+                          <li>
+                             Partner
+                          </li>
+                          <li>
+                             <a href='https://www.stuttgarter-zeitung.de/' target='_blank'>Stuttgarter Zeitung </a>
+                          </li>
+                          <li>
+                             <a href='https://www.stuttgarter-nachrichten.de/' target='_blank'>Stuttgarter Nachrichten </a>
+                          </li>
+                          <li>
+                             <a href='https://www.sueddeutsche.de/' target='_blank'>Süddeutsche.de </a>
+                          </li>
+                       </ul>
+                       <ul>
+                          <li>
+                             <a class='mg' href='https://promotion.schwarzwaelder-bote.de' target='_blank'>Promotion-Mitarbeiter gesucht</a>
+                          </li>
+                          <li>
+                             <a class='mg' href='https://stellenmarkt.schwarzwaelder-bote.de/' target='_blank'>Stellenangebote für Fach- und Führungskräfte</a>
+                          </li>
+                       </ul>
+                       <div>
+                          <a class='mg' href='https://www.schwarzwald-tourismus.info/' style='padding-right: 10px;' target='_blank' title='Schwarzwald Tourismus'>
+                          <img alt='Schwarzwald Tourismus' src='/media.media.b3c2642b-a37d-496b-93ed-a48f7d1c8a62.original.jpg' style='height:60px; width:60px' />
+                          </a>
+                       </div>
+                    </div>"
+
+    # Homepage
+    homePage:
+      value:
+        type: homepage
+        id: f5b8dcba-bf4c-11ed-afa1-0242ac120002
+        title: "Lokal"
+        kicker: ""
+        content:
+          - type: htmlhead
+            content:
+              type: html
+              text: '<head>
+                      <meta charset="utf-8">
+                      <title>Lokal - Schwarzwälder Bote</title>
+                      <link rel="canonical" href="https://www.schwarzwaelder-bote.de/">
+                      <meta name="apple-mobile-web-app-capable" content="yes">
+                      <meta name="robots" content="index, follow, noarchive, noodp, noydir">
+                      <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+                      <link rel="shortcut icon" href="https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/favicon.ico" type="image/ico">
+                      <meta http-equiv="pragma" content="no-cache">
+                      <meta http-equiv="cache-control" content="no-cache">
+                      <meta http-equiv="Content-Language" content="de">
+                      <meta http-equiv="last-modified" content="Wed Mar 08 16:15:21 CET 2023">  
+                      <meta name="author" content="Schwarzwälder Bote, Oberndorf, Germany">
+                      <meta name="copyright" content="Schwarzwälder Bote, Oberndorf, Germany">
+                      <meta name="email" content="service@schwarzwaelder-bote.de">
+                      <meta name="siteinfo" content="https://www.schwarzwaelder-bote.de/robots.txt">
+                      <meta name="description" content="Aktuelle Nachrichten aus dem Schwarzwald und der Region, Schwarzwald-Baar Kreis, Kreis Freudenstadt, Kreis Calw, Zollernalb Kreis, Kreis Rottweil, Kreis Ortenau, Nordschwarzwald, Südschwarzwald, Baden-Württemberg, Politik, Wirtschaft, Finanzen, Beruf, Karriere, Auto, Wohnen und Bauen, Sport, VfB Stuttgart, Fußball, Tabellen, Ergebnisse, Kultur, Reise, Wetter, Südwesten, Veranstaltungen, Musik, Kino, Clubs, Gastro, Video, Fotostrecken, Stellenmarkt, Stellenangebote, Stellengesuche, Immobilien, Wohnung mieten kaufen, Verlag, Presse">
+                      <meta name="keywords" content="Lokal, Startseite">
+                      <meta name="news_keywords" content="Lokal, Startseite">
+                      <meta name="date" content="Wed Mar 08 16:15:21 CET 2023">
+                      <meta property="og:title" content="Lokal">
+                      <meta property="og:type" content="website">
+                      <meta property="og:image" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg">  
+                      <meta property="og:image:secure_url" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg"> 
+                      <meta property="og:image:width" content="1200"> 
+                      <meta property="og:image:height" content="675"> 
+                      <meta property="og:image:type" content="image/jpeg"> 
+                      <meta property="og:description" content="Aktuelle Nachrichten aus dem Schwarzwald und der Region, Schwarzwald-Baar Kreis, Kreis Freudenstadt, Kreis Calw, Zollernalb Kreis, Kreis Rottweil, Kreis Ortenau, Nordschwarzwald, Südschwarzwald, Baden-Württemberg, Politik, Wirtschaft, Finanzen, Beruf, Karriere, Auto, Wohnen und Bauen, Sport, VfB Stuttgart, Fußball, Tabellen, Ergebnisse, Kultur, Reise, Wetter, Südwesten, Veranstaltungen, Musik, Kino, Clubs, Gastro, Video, Fotostrecken, Stellenmarkt, Stellenangebote, Stellengesuche, Immobilien, Wohnung mieten kaufen, Verlag, Presse">
+                      <meta property="og:site_name" content="schwarzwaelder-bote.de">
+                      <meta property="og:locale" content="de_DE">  
+                      <meta property="og:section" content="">
+                      <meta property="og:url" content="https://www.schwarzwaelder-bote.de/">
+                      <meta name="google-site-verification" content="DXNWO6MlvDlolbGoG6oo9nSZHLXUsqAUkOUtJ7wZWxw">
+                      <meta property="fb:admins" content="1387464574">
+                      <meta property="fb:app_id" content="125971070947159">
+                      <meta name="twitter:card" content="summary_large_image">
+                      <meta name="twitter:site" content="@schwarzwaelder">
+                      <meta name="twitter:image" content="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/images/logo_social.jpg">
+                      <meta name="apple-itunes-app" content="app-id=444468501">
+                      <link id="mainCss" href="https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/css/main.min.css?v=20230213-1300" type="text/css" rel="stylesheet">
+                      <link rel="shortcut icon" href="https://www.schwarzwaelder-bote.de/www/schwarzwaelder_bote/favicon.ico" type="image/ico">
+                      <script type="application/ld+json">
+                          {
+                              "@context":"https://schema.org/",
+                              "@type":"WebSite",
+                              "name":"Schwarzwälder Bote",
+                              "potentialAction":{
+                              "@type":"SearchAction",
+                              "target":"https://www.schwarzwaelder-bote.de/suche?_charset_=UTF-8&searchSort=desc&searchText={search_term_string}",
+                              "query-input":"required name=search_term_string"
+                              },
+                              "sameAs":[
+                              "https://www.facebook.com/SchwarzwaelderBote/",
+                              "https://www.instagram.com/schwarzwaelderbote/",
+                              "https://twitter.com/schwarzwaelder",
+                              "https://play.google.com/store/apps/details?id=de.schwabo.newsapp",
+                              "https://de.wikipedia.org/wiki/Schwarzwälder_Bote"
+                              ],
+                              "publisher":{
+                              "@type":"NewsMediaOrganization",
+                              "@id":"https://www.schwarzwaelder-bote.de/",
+                              "url":"https://www.schwarzwaelder-bote.de/",
+                              "mainEntityOfPage":"https://www.schwarzwaelder-bote.de/",
+                              "name":"Schwarzwälder Bote",
+                              "alternateName":[
+                                  "SB",
+                                  "SchwaBo"
+                              ],
+                              "description":"Aktuelle Nachrichten aus dem Schwarzwald und der Region, Schwarzwald-Baar Kreis, Kreis Freudenstadt, Kreis Calw, Zollernalb Kreis, Kreis Rottweil, Kreis Ortenau.",
+                              "foundingDate":"1835-01-02",
+                              "ethicsPolicy":"https://www.schwarzwaelder-bote.de/inhalt.schwarzwaelder-bote-unsere-ethikrichtlinien.0f157d8a-e494-47cb-8735-db292bbbf6e7.html",
+                              "publishingPrinciples":"https://www.schwarzwaelder-bote.de/inhalt.schwarzwaelder-bote-unsere-ethikrichtlinien.0f157d8a-e494-47cb-8735-db292bbbf6e7.html",
+                              "logo":{
+                                  "@type":"ImageObject",
+                                  "url":"https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/svg/schwarzwaelder-bote_logo.svg"
+                              }
+                              },
+                              "url":"https://www.schwarzwaelder-bote.de/"
+                          }
+                      </script>
+                  </head>'
+          - type: rpdad
+            slot: traffective-ad-Skyscraper
+          - type: header 
+            content:              
+              - type: logo
+                reference: https://www.schwarzwaelder-bote.de/staticcontent/schwarzwaelder_bote/common/assets/svg/schwarzwaelder-bote_logo.svg
+                link: https://www.schwarzwaelder-bote.de/
+              - type: usernavigation
+                content:
+                  - type: html
+                    text: "<div id='toggleSearch'></div>"
+                  - type: html
+                    text: "<div id='togglePush'></div>"
+                  - type: html
+                    text: "<div id='toggleUser'></div>"
+                  
+              - type: metanavigation
+                content:
+                  - type: toplevelentry
+                    name: MeinSB
+                    label: MeinSB
+                    reference: "/meinsb"
+                  - type: toplevelentry
+                    name: Abo
+                    label: Abo
+                    reference: "https://produkte.schwarzwaelder-bote.de/?itm_campaign=51GR&itm_source=cms&itm_medium=abo&itm_content=button&wt=EONAB&"
+              - type: mainnavigation
+                content: 
+                - type: toplevelentry
+                  name: Main Navigation 1
+                  label: First
+                  reference: "/ressort/1"
+                - type: toplevelentry
+                  name: Main Navigation 2
+                  label: Second
+                  reference: "/ressort/2"
+                - type: section
+                  name: Main Navigation 3
+                  label: Third
+                  reference: "/ressort/3"
+                  elements:
+                    - type: sectionentry
+                      name: Main Sub Navigation 1
+                      label: First Sub
+                      reference: "/ressort/4"
+                    - type: subsection
+                      name: Main Sub Navigation 2
+                      label: Second Sub
+                      reference: "/ressort/5"
+                      elements:
+                        - type: subsectionentry
+                          name: Main Sub Sub Navigation 1
+                          label: First Sub Sub
+                          reference: "/ressort/6"
+                        - type: subsectionentry
+                          name: Main Sub Sub Navigation 2
+                          label: Second Sub Sub
+                          reference: "/ressort/7"
+                  
+              - type: rpdad
+                slot: traffective-ad-Billboard
+              - type: bottomnavigation
+                content:
+                  - type: topicindex
+                    content:
+                      - type: topicindexitem
+                        name: BW von oben
+                        reference: "/bw-von-oben"
+                      - type: topicindexitem
+                        name: Blaulicht
+                        reference: "/news/baden-wuerttemberg/polizeibericht"
+                      - type: topicindexitem
+                        name: Newsletter
+                        referernce: "/newsletter"  
+          - type: pagecontent
+            content: 
+              - type: brickgroup
+                id: d6700f02-c19c-11ed-afa1-0242ac120002
+                title: BG Banderole
+                content:
+                  - type: brick
+                    id: 033b7558-c19d-11ed-afa1-0242ac120002
+                    title: banderole ad
+                    content:
+                      # Banderole  
+                      - type: html
+                        text: '<div id="banderole"></div>'
+              # Topteaser
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: STZ-RSP18 - B - Ressort Teaser Group (Topteaser)
+                renderMode:
+                  type: hard
+                content:
+                  - type: brick
+                    id: 8be5d43e-c19d-11ed-afa1-0242ac120002
+                    title: Teaser
+                    content:
+                      # topteaser
+                      - type: topteaser
+                        title: 25 Azubi-Gehälter im Vergleich
+                        shortTitle: 25 Azubi-Gehälter im Vergleich
+                        kicker: Von Gerüstbauer bis Schornsteinfeger
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                        publicationDate: 2023-03-02T06:00:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                            type: image
+                            id: 10868164-458c-4784-b49d-f7fb62955286
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335
+                      # topteaser 2
+                      - type: topteaser
+                        title: Intendant beklagt mangelnde Wertschätzung
+                        shortTitle: Intendant beklagt mangelnde Wertschätzung
+                        kicker: Ludwigsburger Schlossfestspiele
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T15:43:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                            type: image
+                            id: 42622677-8e30-4af8-acf2-275d16402d71
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335    
+              - type: brickgroup
+                id: d66d9758-c19d-11ed-afa1-0242ac120002
+                title: BG Banderole 2
+                content:
+                  - type: brick
+                    id: dcabb6ea-c19d-11ed-afa1-0242ac120002
+                    title: banderole
+                    content:
+                      # Banderole 2
+                      - type: html
+                        text: '<div id="banderole_2"></div>'
+                  
+              # Teaser-Group
+              - type: brickgroup
+                id: de3cbc62-d8d2-4528-9563-905f41edb018
+                title: Teaser Group
+                content:
+                  - type: brick
+                    id: 08b60b28-c19e-11ed-afa1-0242ac120002
+                    title: Teaser
+                    content:
+                      # teaser 1
+                      - type: standardteaser
+                        title: 25 Azubi-Gehälter im Vergleich
+                        shortTitle: 25 Azubi-Gehälter im Vergleich
+                        kicker: Von Gerüstbauer bis Schornsteinfeger
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                        publicationDate: 2023-03-02T06:00:00+01:00
+                        imageCount: 2
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                            type: image
+                            id: 10868164-458c-4784-b49d-f7fb62955286
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335
+                      # teaser 2
+                      - type: standardteaser
+                        title: Intendant beklagt mangelnde Wertschätzung
+                        shortTitle: Intendant beklagt mangelnde Wertschätzung
+                        kicker: Ludwigsburger Schlossfestspiele
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T15:43:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: true  
+                        image: 
+                            type: image
+                            id: 42622677-8e30-4af8-acf2-275d16402d71
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335    
+                  - type: brick
+                    id: 2e5b2110-c19e-11ed-afa1-0242ac120002
+                    title: Ads
+                    content:
+                      # Rectangle 1
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle1
+                      
+                  - type: brick
+                    id: 632a39bc-c19e-11ed-afa1-0242ac120002
+                    title: Teaser
+                    content:
+                      # teaser 3
+                      - type: standardteaser
+                        title: Überall Probleme mit dem Geld
+                        shortTitle: Überall Probleme mit dem Geld
+                        kicker: VfB-Boss Alexander Wehrle
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T16:02:00+01:00
+                        imageCount: 1
+                        videoCount: 0
+                        paidContent: false  
+                        image: 
+                            type: image
+                            id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                            name:
+                            caption: 
+                            reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                            dimension:
+                              width: 510
+                              height: 335  
+                      # teaser 4 
+                      - type: standardteaser
+                        title: Immer weniger Menschen wollen Lehrer werden
+                        shortTitle: Immer weniger Menschen wollen Lehrer werden
+                        kicker: Problemzone Schule
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.problemzone-schule-immer-weniger-menschen-wollen-lehrer-werden.de3cbc62-d8d2-4528-9563-905f41edb018.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T16:10:00+01:00
+                        imageCount: 0
+                        videoCount: 0
+                        paidContent: true
+                  - type: brick
+                    id: 81b5fa7e-c19e-11ed-afa1-0242ac120002
+                    title: Ads
+                    content:
+                      # Rectangle 2
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle2
+                  
+                  # Teaser-Group (SB+)
+                  - type: brickgroup
+                    id: de3cbc62-d8d2-4528-9563-905f41edb018
+                    headline: Das Beste aus SB Plus
+                    title: Teaser Group (SB+)
+                    content:
+                      - type: brick
+                        id: aa185ade-c19e-11ed-afa1-0242ac120002
+                        title: Plus Teaser
+                        content:
+                          # teaser 1
+                          - type: standardteaser
+                            title: 25 Azubi-Gehälter im Vergleich
+                            shortTitle: 25 Azubi-Gehälter im Vergleich
+                            kicker: Von Gerüstbauer bis Schornsteinfeger
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                            publicationDate: 2023-03-02T06:00:00+01:00
+                            imageCount: 2
+                            videoCount: 0
+                            paidContent: true  
+                            image: 
+                              type: image
+                              id: 10868164-458c-4784-b49d-f7fb62955286
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                                
+                          # teaser 2
+                          - type: standardteaser
+                            title: Überall Probleme mit dem Geld
+                            shortTitle: Überall Probleme mit dem Geld
+                            kicker: VfB-Boss Alexander Wehrle
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                            publicationDate: 2023-03-02T16:02:00+01:00
+                            imageCount: 1
+                            videoCount: 0
+                            paidContent: false  
+                            image: 
+                              type: image
+                              id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                      - type: brick
+                        id: 04ab61e4-c19f-11ed-afa1-0242ac120002
+                        title: Additional Plus Content
+                        content:
+                        - type: html
+                          text: '<a href="/sb-plus">Weitere SB+ Artikel anzeigen>></a>'
+                  - type: brickgroup
+                    id: re3cbc62-d8d2-4528-9563-90gf41edb018
+                    title: Teaser Group with ad
+                    content:
+                      - type: brick
+                        id: 51bdd462-c19f-11ed-afa1-0242ac120002
+                        title: Teaser
+                        content:
+                          # teaser 1
+                          - type: standardteaser
+                            title: 25 Azubi-Gehälter im Vergleich
+                            shortTitle: 25 Azubi-Gehälter im Vergleich
+                            kicker: Von Gerüstbauer bis Schornsteinfeger
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                            publicationDate: 2023-03-02T06:00:00+01:00
+                            imageCount: 1
+                            videoCount: 1
+                            paidContent: true  
+                            image: 
+                              type: image
+                              id: 10868164-458c-4784-b49d-f7fb62955286
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                          # teaser 2
+                          - type: standardteaser
+                            title: Intendant beklagt mangelnde Wertschätzung
+                            shortTitle: Intendant beklagt mangelnde Wertschätzung
+                            kicker: Ludwigsburger Schlossfestspiele
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                            publicationDate: 2023-03-02T15:43:00+01:00
+                            imageCount: 1
+                            videoCount: 0
+                            paidContent: true  
+                            image: 
+                              type: image
+                              id: 42622677-8e30-4af8-acf2-275d16402d71
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                      - type: brick
+                        id: 81013ac0-c19f-11ed-afa1-0242ac120002
+                        title: Ad
+                        content:
+                        # ad
+                        - type: customad
+                          slot: Verlagsangebot-51DGA236
+                      - type: brick
+                        id: 93cf74b4-c19f-11ed-afa1-0242ac120002
+                        title: Teaser
+                        content:
+                          # teaser 3 
+                          - type: standardteaser
+                            title: Immer weniger Menschen wollen Lehrer werden
+                            shortTitle: Immer weniger Menschen wollen Lehrer werden
+                            kicker: Problemzone Schule
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.problemzone-schule-immer-weniger-menschen-wollen-lehrer-werden.de3cbc62-d8d2-4528-9563-905f41edb018.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                            publicationDate: 2023-03-02T16:10:00+01:00
+                            imageCount: 0
+                            videoCount: 0
+                            paidContent: true
+                          # teaser 4
+                          - type: standardteaser
+                            title: Ein Land muss Farbe bekennen
+                            shortTitle: Ein Land muss Farbe bekennen
+                            kicker: Sexuelle Minderheiten in der der Slowakei
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                            publicationDate: 2023-03-03T09:39:00+01:00
+                            imageCount: 1
+                            videoCount: 0
+                            paidContent: true  
+                            image: 
+                              type: image
+                              id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335    
+                          # teaser 5
+                          - type: standardteaser
+                            title: Wunderbarer Pfannkuchen auf japanisch
+                            shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                            kicker: Nachgekocht
+                            reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                            publicationDate: 2023-03-01T15:03:00+01:00
+                            imageCount: 1
+                            videoCount: 1
+                            paidContent: false  
+                            image: 
+                              type: image
+                              id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                  - type: brickgroup
+                    id: re3cbc62-d8d2-4528-9563-90gf41edb018
+                    title: Teaser Group with ad
+                    content:
+                    - type: brick
+                      id: e2d1ef74-c19f-11ed-afa1-0242ac120002
+                      title: Ad
+                      content:
+                      # ad
+                      - type: rpdad
+                        slot: traffective-ad-Rectangle_2
+                    - type: brick
+                      id: 01351f18-c1a0-11ed-afa1-0242ac120002
+                      title: Teaser
+                      content:
+                      # teaser 1
+                      - type: standardteaser
+                        title: Immer weniger Menschen wollen Lehrer werden
+                        shortTitle: Immer weniger Menschen wollen Lehrer werden
+                        kicker: Problemzone Schule
+                        reference: https://www.stuttgarter-zeitung.de/inhalt.problemzone-schule-immer-weniger-menschen-wollen-lehrer-werden.de3cbc62-d8d2-4528-9563-905f41edb018.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                        publicationDate: 2023-03-02T16:10:00+01:00
+                        imageCount: 0
+                        videoCount: 0
+                        paidContent: true
+                      
+                  - type: brickgroup
+                    id: de3cbc62-d5d2-4522-1263-905f41edb018
+                    title: Teaser Group Region und Land
+                    content:
+                    - type: brick
+                      id: 0f64cb24-c1a0-11ed-afa1-0242ac120002
+                      title: Region und Land Teaser       
+                      headline: Region und Land
+                      content:
+                        # teaser 1
+                        - type: topteaser
+                          title: Wunderbarer Pfannkuchen auf japanisch
+                          shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                          kicker: Nachgekocht
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-01T15:03:00+01:00
+                          imageCount: 1
+                          videoCount: 1
+                          paidContent: false  
+                          image: 
+                              type: image
+                              id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # teaser 2
+                        - type: topteaser
+                          title: Ein Land muss Farbe bekennen
+                          shortTitle: Ein Land muss Farbe bekennen
+                          kicker: Sexuelle Minderheiten in der der Slowakei
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-03T09:39:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # teaser 3
+                        - type: standardteaser
+                          title: 25 Azubi-Gehälter im Vergleich
+                          shortTitle: 25 Azubi-Gehälter im Vergleich
+                          kicker: Von Gerüstbauer bis Schornsteinfeger
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                          publicationDate: 2023-03-02T06:00:00+01:00
+                          imageCount: 1
+                          videoCount: 1
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 10868164-458c-4784-b49d-f7fb62955286
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # teaser 4
+                        - type: standardteaser
+                          title: Intendant beklagt mangelnde Wertschätzung
+                          shortTitle: Intendant beklagt mangelnde Wertschätzung
+                          kicker: Ludwigsburger Schlossfestspiele
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-02T15:43:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 42622677-8e30-4af8-acf2-275d16402d71
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335    
+                        # teaser 5
+                        - type: standardteaser
+                          title: Überall Probleme mit dem Geld
+                          shortTitle: Überall Probleme mit dem Geld
+                          kicker: VfB-Boss Alexander Wehrle
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-02T16:02:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: false  
+                          image: 
+                              type: image
+                              id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                  - type: brickgroup
+                    id: de3cbc62-d5d2-4522-1263-905f41edb718
+                    title: Teaser Group Sport
+                    content:
+                    - type: brick
+                      id: 2b94f10c-c1a0-11ed-afa1-0242ac120002
+                      title: Sport Teaser       
+                      headline: Sport
+                      content:
+                        # topteaser 1
+                        - type: topteaser
+                          title: Wunderbarer Pfannkuchen auf japanisch
+                          shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                          kicker: Nachgekocht
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-01T15:03:00+01:00
+                          imageCount: 1
+                          videoCount: 1
+                          paidContent: false  
+                          image: 
+                              type: image
+                              id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # topteaser 2
+                        - type: topteaser
+                          title: Ein Land muss Farbe bekennen
+                          shortTitle: Ein Land muss Farbe bekennen
+                          kicker: Sexuelle Minderheiten in der der Slowakei
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-03T09:39:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # teaser 1
+                        - type: standardteaser
+                          title: 25 Azubi-Gehälter im Vergleich
+                          shortTitle: 25 Azubi-Gehälter im Vergleich
+                          kicker: Von Gerüstbauer bis Schornsteinfeger
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                          publicationDate: 2023-03-02T06:00:00+01:00
+                          imageCount: 1
+                          videoCount: 1
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 10868164-458c-4784-b49d-f7fb62955286
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # teaser 2
+                        - type: standardteaser
+                          title: Intendant beklagt mangelnde Wertschätzung
+                          shortTitle: Intendant beklagt mangelnde Wertschätzung
+                          kicker: Ludwigsburger Schlossfestspiele
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-02T15:43:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 42622677-8e30-4af8-acf2-275d16402d71
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335    
+                        # teaser 3
+                        - type: standardteaser
+                          title: Überall Probleme mit dem Geld
+                          shortTitle: Überall Probleme mit dem Geld
+                          kicker: VfB-Boss Alexander Wehrle
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-02T16:02:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: false  
+                          image: 
+                              type: image
+                              id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                  - type: brickgroup
+                    id: deterc62-d5d2-4522-1263-905f41edb718
+                    title: Newsticker Teaser Group
+                    content:
+                    - type: brick
+                      id: 3cab851e-c1a0-11ed-afa1-0242ac120002
+                      title: Newsticker       
+                      headline: Newsticker
+                      content:
+                        # tickerteaser 1
+                        - type: tickerteaser
+                          title: Wunderbarer Pfannkuchen auf japanisch
+                          shortTitle: Wunderbarer Pfannkuchen auf japanisch
+                          kicker: Nachgekocht
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.nachgekocht-wunderbarer-pfannkuchen-auf-japanisch.599bfd5b-0dca-4c2f-a440-34cefff3b9f9.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-03T15:03:00+01:00
+                          imageCount: 1
+                          videoCount: 1
+                          paidContent: false  
+                          image: 
+                              type: image
+                              id: 8d1739f2-fb8d-41c4-8d82-57d526db0896
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.8d1739f2-fb8d-41c4-8d82-57d526db0896.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # tickerteaser 2
+                        - type: tickerteaser
+                          title: Ein Land muss Farbe bekennen
+                          shortTitle: Ein Land muss Farbe bekennen
+                          kicker: Sexuelle Minderheiten in der der Slowakei
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.sexuelle-minderheiten-in-der-der-slowakei-ein-land-muss-farbe-bekennen.249d86fc-fac6-45fc-b74e-dca3f1f0d80a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-03T15:09:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.6ea280d2-ae8e-4a0f-8a04-6fb56724c3e0.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # tickerteaser 3
+                        - type: tickerteaser
+                          title: 25 Azubi-Gehälter im Vergleich
+                          shortTitle: 25 Azubi-Gehälter im Vergleich
+                          kicker: Von Gerüstbauer bis Schornsteinfeger
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.von-geruestbauer-bis-schornsteinfeger-25-azubi-gehaelter-im-vergleich.2cc7963e-dfa9-45db-88b5-935a186b1144.html
+                          publicationDate: 2023-03-03T15:01:00+01:00
+                          imageCount: 1
+                          videoCount: 1
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 10868164-458c-4784-b49d-f7fb62955286
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.10868164-458c-4784-b49d-f7fb62955286.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335
+                        # tickerteaser 4
+                        - type: standardteaser
+                          title: Intendant beklagt mangelnde Wertschätzung
+                          shortTitle: Intendant beklagt mangelnde Wertschätzung
+                          kicker: Ludwigsburger Schlossfestspiele
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.ludwigsburger-schlossfestspiele-intendant-beklagt-mangelnde-wertschaetzung.cd8997f9-f9c7-4742-b6c5-14dc709a4dc7.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-03T15:21:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: true  
+                          image: 
+                              type: image
+                              id: 42622677-8e30-4af8-acf2-275d16402d71
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.42622677-8e30-4af8-acf2-275d16402d71.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335    
+                        # tickerteaser 5
+                        - type: tickerteaser
+                          title: Überall Probleme mit dem Geld
+                          shortTitle: Überall Probleme mit dem Geld
+                          kicker: VfB-Boss Alexander Wehrle
+                          reference: https://www.stuttgarter-zeitung.de/inhalt.vfb-boss-alexander-wehrle-ueberall-probleme-mit-dem-geld.809521de-f3e4-4436-ad11-d11654cbeb1a.html?utm_source=upscore_box&amp;utm_medium=plus_a
+                          publicationDate: 2023-03-03T15:49:00+01:00
+                          imageCount: 1
+                          videoCount: 0
+                          paidContent: false  
+                          image: 
+                              type: image
+                              id: ca4ce522-a73c-4170-81bd-da3fd404ee67
+                              name:
+                              caption: 
+                              reference: https://www.stuttgarter-zeitung.de/media.media.ca4ce522-a73c-4170-81bd-da3fd404ee67.original_1024.jpg
+                              dimension:
+                                width: 510
+                                height: 335                                                
+          - type: footer
+            content:
+              - type: html
+                text: "<div class='brickgroup m-wrapper' 
+                    data-renderer='_dynamic' 
+                    data-layout-desktop='w12-' 
+                    data-layout-tablet='w12-' 
+                    data-layout-mobile='w12-' 
+                    data-brickid='c6ad6b82-f1a9-4b70-b9ca-b794938e8dc8'>
+                    <a class='scroll-to' href='#top-of-page' id='top-anchor'>
+                    <span class='icon-arrow-1'></span> 
+                    </a> 
+                    <ul class='footer-links'>
+                       <li>
+                          <a href='/impressum'>Impressum &amp; Kontakt</a>
+                       </li>
+                       <li>
+                          <a href='/datenschutz'>Datenschutzerklärung</a>
+                       </li>
+                       <li>
+                          <a href='#' onclick='window._sp_.gdpr.loadPrivacyManagerModal(217552);return false;'>Datenschutz-Einstellungen</a>
+                       </li>
+                       <li>
+                          <a href='/agb-digital'>AGB</a>
+                       </li>
+                       <li>
+                          <a href='https://produkte.schwarzwaelder-bote.de/kuendigung/' target='_blank'>Abonnement kündigen</a>
+                       </li>
+                       <li>
+                          <a href='/ethikrichtlinie'>Ethikrichtlinie</a>
+                       </li>
+                       <li>
+                          <a href='https://service.schwarzwaelder-bote.de/cms/wm?catId=12066433' target='_blank'>Mediadaten</a>
+                       </li>
+                       <li class='copyright'>
+                          © schwarzwaelder-bote.de
+                       </li>
+                    </ul>
+                    <style type='text/css'> .mod-footer .footer-links li.copyright { padding-top: 10px; } </style>
+                    <div class='footer-extra'>
+                       <ul>
+                          <li>
+                             Partner
+                          </li>
+                          <li>
+                             <a href='https://www.stuttgarter-zeitung.de/' target='_blank'>Stuttgarter Zeitung </a>
+                          </li>
+                          <li>
+                             <a href='https://www.stuttgarter-nachrichten.de/' target='_blank'>Stuttgarter Nachrichten </a>
+                          </li>
+                          <li>
+                             <a href='https://www.sueddeutsche.de/' target='_blank'>Süddeutsche.de </a>
+                          </li>
+                       </ul>
+                       <ul>
+                          <li>
+                             <a class='mg' href='https://promotion.schwarzwaelder-bote.de' target='_blank'>Promotion-Mitarbeiter gesucht</a>
+                          </li>
+                          <li>
+                             <a class='mg' href='https://stellenmarkt.schwarzwaelder-bote.de/' target='_blank'>Stellenangebote für Fach- und Führungskräfte</a>
+                          </li>
+                       </ul>
+                       <div>
+                          <a class='mg' href='https://www.schwarzwald-tourismus.info/' style='padding-right: 10px;' target='_blank' title='Schwarzwald Tourismus'>
+                          <img alt='Schwarzwald Tourismus' src='/media.media.b3c2642b-a37d-496b-93ed-a48f7d1c8a62.original.jpg' style='height:60px; width:60px' />
+                          </a>
+                       </div>
+                    </div>"
+    

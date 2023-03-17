@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import Content from '../Content/Content'
+import Content from '../../layouts/layoutComponents/Content/Content'
 
-import Region from '../Region/Region'
+import Region from '../../layouts/layoutComponents/Region/Region'
 
 export const StyledHeader = styled.div`
   display: flex;

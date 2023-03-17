@@ -104,3 +104,47 @@ a {
     color-scheme: dark;
   }
 }
+
+.footer {
+  & .brickgroup.m-wrapper {
+
+  }
+  & .scroll-to {
+  
+  }
+  & .footer-links{
+    background: #d9d9d9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0px;
+    border-top: 3px solid black;
+    & li{
+      list-style: none;
+      & a {}
+    }
+  }
+  & .footer-extra {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    & ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 40px;
+      max-width: 693px;
+      padding-top: 50px;
+      padding-bottom: 30px;
+      &:last-of-type{
+        padding-top: 0;
+      }
+      & li {
+        list-style: none;
+        & a {}
+      }
+    }
+  }
+}

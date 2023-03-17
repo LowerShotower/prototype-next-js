@@ -48,6 +48,7 @@
   },
 
   "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
     "prettier/prettier": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",

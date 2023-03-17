@@ -2,19 +2,40 @@ import Head from 'next/head'
 import Layout from '@/components/layouts/Layout/Layout'
 import { ReactElement } from 'react'
 import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
-import Teaser from '@/components/teasers/Teaser/Teaser'
+import Teaser from '@/components/bticks/Teaser/Teaser'
 import Row from '@/components/layouts/layoutComponents/Row/Row'
 
 import Section from '@/components/layouts/layoutComponents/Section/Section'
-import Ad from '@/components/ads/Ad/Ad'
+import Ad from '@/components/bticks/ads/Ad/Ad'
 import Divider from '@/components/layouts/layoutComponents/Divider/Divider'
 import MehrButton from '@/components/MehrButton/MehrButton'
 import Breadcramps from '@/components/sections/Breadcramps/Breadcramps'
 import Link from 'next/link'
 import Image from 'next/image'
 import home from '@/public/assets/icons/home.svg'
+import { components } from 'schema'
+import { GetServerSideProps } from 'next/types'
 
-const Index = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  //@ts-ignore
+  const { ressortId } = context.params
+  const res = await fetch(
+    `http://msh-news.intetics.com:8080/stz/article/a26d8a68-b297-11ed-afa1-0242ac120002`
+  )
+  const data: components['schemas']['Wall'] = await res.json()
+  console.log('ressort', data)
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}
+
+const Ressort = () => {
   return (
     <>
       <Head>
@@ -149,12 +170,48 @@ const Index = () => {
   )
 }
 
-Index.getLayout = (page: ReactElement) => {
-  return (
-    <Layout>
-      <BodyLayout>{page}</BodyLayout>
-    </Layout>
-  )
-}
+// Index.getLayout = (page: ReactElement) => {
+//   return (
+//     <Layout>
+//       <BodyLayout>{page}</BodyLayout>
+//     </Layout>
+//   )
+// }
 
-export default Index
+export default Ressort
+
+{
+  /* <StyledLayout>
+<StyledWrapper>
+  {header?.[0] && (
+    <Header data={header[0] as components['schemas']['Header']} />
+  )}
+  <StyledBody>
+    <StyledBodyLayout>
+      <StyledMainContent>
+        <AdBillboard />
+        <StyledContent>
+          {pagecontent?.[0] && (
+            <PageContent
+              data={
+                pagecontent[0] as components['schemas']['PageContent']
+              }
+            />
+          )}
+        </StyledContent>
+        <StyledFooter>
+          {' '}
+          {footer?.[0] && (
+            <Footer
+              data={footer[0] as components['schemas']['Footer']}
+            />
+          )}
+        </StyledFooter>
+      </StyledMainContent>
+      <StyledAdSkyscraper />
+    </StyledBodyLayout>
+  </StyledBody>
+</StyledWrapper>
+</StyledLayout>
+</> */
+}

@@ -15,6 +15,7 @@ export const StyledRow = styled.div<StyledRowAndRowItemProps>`
 `
 
 export const StyledRowItem = styled.div<StyledRowAndRowItemProps>`
+  border: 1px dashed lightblue;
   height: 100%;
   flex: 0 0 ${({ columns: { lg } = {} }) => `${100 / (lg || 1)}%`};
   padding: 0 ${({ spacing }) => `${spacing || 0}px`};

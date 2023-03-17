@@ -1,4 +1,4 @@
-import AdBillboard from '@/components/ads/AdBillboard/AdBillboard'
+import AdBillboard from '@/components/bticks/ads/AdBillboard/AdBillboard'
 import { type FunctionComponent, type ReactNode } from 'react'
 import { StyledFooter } from '../Layout/Layout.styles'
 import {

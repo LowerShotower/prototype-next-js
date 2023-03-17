@@ -1,4 +1,4 @@
-import AdSkyscraper from '@/components/ads/AdSkyscraper/AdSkyscraper'
+import AdSkyscraper from '@/components/bticks/ads/AdSkyscraper/AdSkyscraper'
 import Content from '@/components/layouts/layoutComponents/Content/Content'
 import styled from 'styled-components'
 
@@ -8,6 +8,7 @@ export const StyledBodyLayout = styled.div`
 `
 
 export const StyledContent = styled.div`
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;

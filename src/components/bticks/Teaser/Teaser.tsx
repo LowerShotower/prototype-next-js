@@ -25,11 +25,13 @@ export type EnumTypes = `${(typeof Enum)[keyof typeof Enum]}`
 interface TeaserProps {
   children?: ReactNode
   className?: string
-  title?: string
-  text?: string
+  title: string
+  text: string
   paidContent: boolean
   enm: EnumTypes
   imageCount?: number
+  image?: string
+  href?: string
 }
 
 const Teaser: FunctionComponent<TeaserProps> = ({
@@ -38,10 +40,22 @@ const Teaser: FunctionComponent<TeaserProps> = ({
   text,
   paidContent,
   enm,
+  image,
+  href,
 }) => {
   return (
-    <StyledTeaser className={className} enm={enm}>
-      <StyledTeaserImage paidContent={paidContent} enm={enm} />
+    <StyledTeaser
+      className={className}
+      enm={enm}
+      onClick={() => {
+        window.open(`${href}`, 'mywindow')
+      }}
+    >
+      <StyledTeaserImage
+        paidContent={paidContent}
+        enm={enm}
+        src={image || ''}
+      />
       <StyledTeaserDescription enm={enm}>
         <StyledTeaserTitle>{title}</StyledTeaserTitle>
         <StyledTeaserText>{text}</StyledTeaserText>

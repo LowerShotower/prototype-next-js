@@ -1,23 +1,32 @@
 import { type FunctionComponent, type ReactNode } from 'react'
-import Image from 'next/image'
-import touristik from '@/public/assets/icons/touristik.svg'
+// import Image from 'next/image'
+// import touristik from '@/public/assets/icons/touristik.svg'
 import {
   StyledFooter,
-  StyledLink,
-  StyledMainLinks,
-  StyledPartnerLinks,
-  StyledPartnerLinksWrapper,
+  // StyledLink,
+  // StyledMainLinks,
+  // StyledPartnerLinks,
+  // StyledPartnerLinksWrapper,
 } from './Footer.styles'
+import { components } from 'schema'
+import { getDangerouslyHtml } from '@/utils'
 
 interface FooterProps {
   children?: ReactNode
   className?: string
+  data: components['schemas']['Footer']
 }
 
-const Footer: FunctionComponent<FooterProps> = ({ className }) => {
+const Footer: FunctionComponent<FooterProps> = ({ className, data }) => {
+  // console.log('Footer', data)
+  const { content } = data
   return (
     <StyledFooter className={className}>
-      <StyledMainLinks>
+      <div
+        className="footer"
+        dangerouslySetInnerHTML={getDangerouslyHtml(content?.[0]?.text)}
+      />
+      {/* <StyledMainLinks>
         <StyledLink href="">Impressum & Kontakt</StyledLink>
         <StyledLink href="">Datenschutzerklärung</StyledLink>
         <StyledLink href="">Datenschutz-Einstellungen</StyledLink>
@@ -41,7 +50,7 @@ const Footer: FunctionComponent<FooterProps> = ({ className }) => {
         <StyledLink href="">
           <Image src={touristik} alt="touristik" />
         </StyledLink>
-      </StyledPartnerLinksWrapper>
+      </StyledPartnerLinksWrapper> */}
     </StyledFooter>
   )
 }

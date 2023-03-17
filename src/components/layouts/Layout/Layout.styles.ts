@@ -1,6 +1,6 @@
 import Body from '@/components/layouts/layoutComponents/Body/Body'
-import Footer from '@/components/layouts/layoutComponents/Footer/Footer'
-import Header from '@/components/layouts/layoutComponents/Header/Header'
+import Footer from '@/components/bticks/Footer/Footer'
+import Header from '@/components/bticks/Header/Header'
 import Wrapper from '@/components/layouts/layoutComponents/Wrapper/Wrapper'
 import styled from 'styled-components'
 

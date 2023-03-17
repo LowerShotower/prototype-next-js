@@ -1,9 +1,9 @@
 import { EnumTypes, TeaserTypes } from './Teaser'
-import Placeholder from '@/components/Placeholder/Placeholder'
 import styled, { css } from 'styled-components'
 import Flag from '@/components/Flag/Flag'
 
 export const StyledTeaser = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -21,8 +21,13 @@ export const StyledTeaser = styled.div`
   }};
 `
 // export const StyledTeaserBody = styled.div``
-export const StyledTeaserImage = styled(Placeholder)`
+export const StyledTeaserImage = styled.image`
   flex: 0 0 auto;
+  background-image: url(${(props: {
+    src: string
+    enm: EnumTypes
+    paidContent: boolean
+  }) => props.src || ''});
   ${({ enm }: { enm: EnumTypes }) => {
     switch (enm) {
       case 'standard':
