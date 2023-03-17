@@ -7,8 +7,16 @@ interface ArticleHeaderProps {
   style?: object
 }
 
-const ArticleHeader: FunctionComponent<ArticleHeaderProps> = ({ className, children, style }) => {
-  return <StyledArticleHeader className={className} style={style}>{children}</StyledArticleHeader>
+const ArticleHeader: FunctionComponent<ArticleHeaderProps> = ({
+  className,
+  children,
+  style,
+}) => {
+  return (
+    <StyledArticleHeader className={className} style={style}>
+      {children}
+    </StyledArticleHeader>
+  )
 }
 
 export default ArticleHeader
