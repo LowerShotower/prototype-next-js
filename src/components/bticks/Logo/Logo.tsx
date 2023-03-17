@@ -8,7 +8,7 @@ interface LogoProps {
   style?: object
 }
 
-const Logo: FunctionComponent<LogoProps> = ({ className, children, style }) => {
+const Logo: FunctionComponent<LogoProps> = ({ className, style }) => {
   return (
     <StyledLogo className={className} style={style}>
       <StyledLogo>

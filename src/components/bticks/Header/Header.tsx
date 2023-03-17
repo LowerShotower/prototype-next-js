@@ -4,21 +4,21 @@ import {
   StyledExternalLink,
   StyledExternalLinkWrapper,
   StyledHeader,
-  StyledLink,
-  StyledLogo,
+  // StyledLink,
+  // StyledLogo,
   StyledMenu,
   StyledNavigation,
   StyledRegion,
 } from './Header.styles'
-import Image from 'next/image'
-import search from '@/public/assets/icons/search.svg'
-import person from '@/public/assets/icons/person.svg'
-import triangle from '@/public/assets/icons/triangle.svg'
+// import Image from 'next/image'
+// import search from '@/public/assets/icons/search.svg'
+// import person from '@/public/assets/icons/person.svg'
+// import triangle from '@/public/assets/icons/triangle.svg'
 import { components } from 'schema'
 import { groupBy } from 'lodash'
 import MainNavigation from '../MainNavigation/MainNavigation'
-import UserNavigation from '../UserNavigation/UserNavigation'
-import TopNavigation from '../TopNavigation/TopNavigation'
+// import UserNavigation from '../UserNavigation/UserNavigation'
+// import TopNavigation from '../TopNavigation/TopNavigation'
 import Logo from '../Logo/Logo'
 interface LayoutProps {
   className?: string

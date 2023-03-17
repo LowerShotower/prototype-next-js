@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from '@/components/layouts/Layout/Layout'
-import { ReactElement } from 'react'
-import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
+// import Layout from '@/components/layouts/Layout/Layout'
+// import { ReactElement } from 'react'
+// import BodyLayout from '@/components/layouts/BodyLayout/BodyLayout'
 import Teaser from '@/components/bticks/Teaser/Teaser'
 import Row from '@/components/layouts/layoutComponents/Row/Row'
 
@@ -16,9 +16,9 @@ import home from '@/public/assets/icons/home.svg'
 import { components } from 'schema'
 import { GetServerSideProps } from 'next/types'
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   //@ts-ignore
-  const { ressortId } = context.params
+  // const { ressortId } = context.params
   const res = await fetch(
     `http://msh-news.intetics.com:8080/stz/article/a26d8a68-b297-11ed-afa1-0242ac120002`
   )

@@ -1,6 +1,6 @@
 import { type FunctionComponent, type ReactNode } from 'react'
 import { components } from 'schema'
-import BrickGroup from '../BrickGroup/BrickGroup'
+// import BrickGroup from '../BrickGroup/BrickGroup'
 
 interface PageContentProps {
   children?: ReactNode

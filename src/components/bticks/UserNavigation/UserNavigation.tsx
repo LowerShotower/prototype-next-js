@@ -11,12 +11,12 @@ interface UserNavigationProps {
 
 const UserNavigation: FunctionComponent<UserNavigationProps> = ({
   className,
-  children,
+  // children,
   style,
 }) => {
   return (
     <StyledUserNavigation className={className} style={style}>
-      <StyledLink href="">
+      {/* <StyledLink href="">
         <Image src={search} alt="search" />
       </StyledLink>
       <StyledLink href="">
@@ -24,7 +24,7 @@ const UserNavigation: FunctionComponent<UserNavigationProps> = ({
       </StyledLink>
       <StyledLink href="">
         <Image src={triangle} alt="triangle" />
-      </StyledLink>
+      </StyledLink> */}
     </StyledUserNavigation>
   )
 }

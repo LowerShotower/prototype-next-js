@@ -19,7 +19,7 @@ const BrickGroup: FunctionComponent<BrickGroupProps> = ({ data }) => {
   return (
     <Section>
       Brickgroup
-      <Row spacing={20} columns={{ lg: Math.min(content.length, 4) }}>
+      <Row spacing={20} columns={{ lg: 4 }}>
         {content?.map((item, id) => {
           if (item.type === 'brick') {
             return (
